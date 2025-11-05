@@ -1,139 +1,59 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html'%}
+{% block title %} Sign in {% endblock %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign in</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="../styles/style.css">
-    <link rel="icon" href="../images/section1-img/kuwait-university-logo.webp" type="image/png">
-</head>
+{% block content %}
+<main id="main-content" tabindex="-1">
+    <div class="layout-container auth-layout">
+        <section class="content-card auth-card" aria-labelledby="signin-heading">
+            <h1 id="signin-heading">Sign in to KUGuide</h1>
+            <p>Access your personalised dashboard, save study materials, and stay on track with campus
+                opportunities.
+                Use your official Kuwait University credentials.</p>
 
-<body>
-
-    <div class="alert-link" role="alert">
-        <nav class="navbar navbar-expand-md navbar-light custom-navbar">
-            <a class="navbar-brand" href="../Templates/index.html">
-                <img src="../images/section1-img/kuwait-university-logo.webp" alt="Kuwait University Logo"
-                    style="height: 80px;">
-                <p class="navbar-p">Kuwait University Guide</p>
-            </a>
-
-            <!-- Hamburger button on the right for small screens -->
-            <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#mainNavbar"
-                aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <!-- Desktop: visible, pushed to the right
-             Mobile: collapses under the header -->
-            <div class="collapse navbar-collapse" id="mainNavbar">
-                <div class="nav justify-content-end ml-auto">
-                    <a class="nav-link active" href="../Templates/index.html" role="menuitem">Home</a>
-                    <a class="nav-link active" href="../Templates/faq.html">FAQ</a>
-                    <a class="nav-link active" href="../Templates/career.html">Career</a>
-                    <a class="nav-link active" href="../Templates/profile.html">Profile</a>
-                    <a class="nav-link active" href="../Templates/contact.html">Contact</a>
-                    <a class="nav-link active" href="../Templates/signin.html">Sign in</a>
+            <form class="auth-form" action="#" method="POST" aria-describedby="signin-support">
+                <div>
+                    <label for="email">University Email</label>
+                    <input type="email" id="email" name="email" autocomplete="email" placeholder="name@ku.edu.kw"
+                        required>
                 </div>
-            </div>
-        </nav>
-        <main id="main-content" tabindex="-1">
-            <div class="layout-container auth-layout">
-                <section class="content-card auth-card" aria-labelledby="signin-heading">
-                    <h1 id="signin-heading">Sign in to KUGuide</h1>
-                    <p>Access your personalised dashboard, save study materials, and stay on track with campus
-                        opportunities.
-                        Use your official Kuwait University credentials.</p>
 
-                    <form class="auth-form" action="#" method="POST" aria-describedby="signin-support">
-                        <div>
-                            <label for="email">University Email</label>
-                            <input type="email" id="email" name="email" autocomplete="email"
-                                placeholder="name@ku.edu.kw" required>
-                        </div>
+                <div>
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" autocomplete="current-password"
+                        placeholder="Enter your password" required>
+                </div>
 
-                        <div>
-                            <label for="password">Password</label>
-                            <input type="password" id="password" name="password" autocomplete="current-password"
-                                placeholder="Enter your password" required>
-                        </div>
+                <div class="form-utilities">
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="remember" name="remember">
+                        <label class="custom-control-label" for="remember">Remember me</label>
+                    </div>
+                    <a href="#password-reset">Forgot password?</a>
+                </div>
 
-                        <div class="form-utilities">
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="remember" name="remember">
-                                <label class="custom-control-label" for="remember">Remember me</label>
-                            </div>
-                            <a href="#password-reset">Forgot password?</a>
-                        </div>
+                <button type="submit" class="btn btn-light">Continue</button>
+            </form>
+        </section>
 
-                        <button type="submit" class="btn btn-light">Continue</button>
-                    </form>
-                </section>
+        <aside class="auth-support" aria-labelledby="signin-support">
+            <section class="content-card support-card">
+                <h2 id="signin-support">Need help signing in?</h2>
+                <p>Our support team can reset your password or help you regain access to your account.</p>
+                <div class="support-actions">
+                    <a class="btn btn-primary" href="mailto:support@kuguide.edu.kw">Email support</a>
+                    <a class="btn btn-light" href="tel:+96550050505">Call +965 5005 0505</a>
+                </div>
+            </section>
 
-                <aside class="auth-support" aria-labelledby="signin-support">
-                    <section class="content-card support-card">
-                        <h2 id="signin-support">Need help signing in?</h2>
-                        <p>Our support team can reset your password or help you regain access to your account.</p>
-                        <div class="support-actions">
-                            <a class="btn btn-primary" href="mailto:support@kuguide.edu.kw">Email support</a>
-                            <a class="btn btn-light" href="tel:+96550050505">Call +965 5005 0505</a>
-                        </div>
-                    </section>
-
-                    <section class="content-card support-card" aria-labelledby="signin-benefits-heading">
-                        <h2 id="signin-benefits-heading">Why create an account?</h2>
-                        <ul>
-                            <li>Track your course progress and bookmark study materials.</li>
-                            <li>Chat with the AI assistant for tailored academic guidance.</li>
-                            <li>Receive alerts about new internships and campus events.</li>
-                        </ul>
-                    </section>
-                </aside>
-            </div>
-        </main>
-
-        <footer>
-            Kuwait University Guide © <span id="current-year"></span> Kuwait University. All rights reserved.
-        </footer>
-
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-            crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-            crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-            crossorigin="anonymous"></script>
-
-        <script>
-            document.getElementById('current-year').textContent = new Date().getFullYear();
-        </script>
-        <script>
-            document.addEventListener('DOMContentLoaded', function () {
-                document.querySelectorAll('img[alt]').forEach(function (img) {
-                    function replaceWithText() {
-                        if (img.dataset._replaced) return;
-                        img.dataset._replaced = '1';
-                        const alt = img.getAttribute('alt') || 'Image not available';
-                        const box = document.createElement('div');
-                        box.className = 'img-fallback';
-                        box.setAttribute('role', 'img');
-                        box.setAttribute('aria-label', alt);
-                        box.textContent = alt;
-                        img.replaceWith(box); // remove broken icon; let text expand fully
-                    }
-                    img.addEventListener('error', replaceWithText, { once: true });
-
-                    // If it already failed before JS attached:
-                    if (img.complete && img.naturalWidth === 0) replaceWithText();
-                });
-            });
-        </script>
-
-</body>
-
-</html>
+            <section class="content-card support-card" aria-labelledby="signin-benefits-heading">
+                <h2 id="signin-benefits-heading">Why create an account?</h2>
+                <ul>
+                    <li>Track your course progress and bookmark study materials.</li>
+                    <li>Chat with the AI assistant for tailored academic guidance.</li>
+                    <li>Receive alerts about new internships and campus events.</li>
+                </ul>
+            </section>
+        </aside>
+    </div>
+</main>
+{% endblock %}
