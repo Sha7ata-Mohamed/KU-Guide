@@ -16,8 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path , include
+from KUGuide.admin_dashboard import KUGuideAdminSite
+
+admin_site = KUGuideAdminSite(name="KUGuideAdmin")
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin_site.urls),
     path('', include('KUGuide.urls')),
 ]
