@@ -16,7 +16,7 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'styles/style.css' %}">
-
+    {% block extra_css %}{% endblock %}
     <!-- Favicon -->
     <link rel="icon" href="{% static 'images/section1-img/kuwait-university-logo.webp' %}" type="image/png">
 </head>
@@ -95,6 +95,8 @@
             });
         });
     </script>
+    {% block extra_js %}{% endblock %}
+
 </body>
 
 </html>

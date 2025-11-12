@@ -1,24 +1,27 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block title %}Home - KUGuide{% endblock %}
+
 {% block content %}
 <main id="main-content" tabindex="-1">
     <div class="layout-container">
+        <!-- Hero -->
         <section class="hero" aria-labelledby="hero-heading">
             <h1 id="hero-heading">Welcome to Kuwait University Guide</h1>
-            <p>Access curated learning materials, stay connected with classmates, receive AI-powered support, and
-                move confidently toward your next career opportunity.</p>
+            <p>Access curated learning materials, stay connected with classmates, receive AI-powered support, and move
+                confidently toward your next Career Guidance opportunity.</p>
             <div class="hero-actions">
                 <a class="btn btn-primary" href="{% url 'signin' %}">Sign In</a>
-                <a class="btn btn-light" href="{% url 'career' %}">Discover opportunities</a>
+                <a class="btn btn-primary" href="{% url 'faq' %}">Frequently Asked Questions</a>
             </div>
         </section>
 
+        <!-- Feature cards -->
         <section class="content-card" aria-labelledby="features-heading">
             <div class="section-title">
                 <h2 id="features-heading">Everything You Need</h2>
                 <p>Four pillars designed to support Kuwait University students throughout their academic journey and
-                    meet market demands.</p>
+                    meet market demands</p>
             </div>
 
             <div class="feature-grid">
@@ -56,7 +59,7 @@
                     <img class="card-img-top-career" src="{% static 'images/section1-img/career.png' %}"
                         alt="Graduate celebrating job success">
                     <div class="card-body text-center">
-                        <h3 class="card-title" id="career-title">Career Support</h3>
+                        <h3 class="card-title" id="career-title">Career Guidance</h3>
                         <p class="card-text">Discover internships, mentorship programmes, and job opportunities in
                             partnership with OSTA.</p>
                     </div>
@@ -64,6 +67,7 @@
             </div>
         </section>
 
+        <!-- Carousel -->
         <section class="content-card" aria-labelledby="carousel-heading">
             <div class="section-title">
                 <h2 id="carousel-heading">Highlights from the Community</h2>
@@ -78,6 +82,7 @@
                     <li data-target="#carouselId" data-slide-to="3"></li>
                     <li data-target="#carouselId" data-slide-to="4"></li>
                 </ol>
+
                 <div class="carousel-inner" role="listbox">
                     <div class="carousel-item active">
                         <a href="https://www.instagram.com/p/DQY3ah6DZkQ/" target="_blank" rel="noopener">
@@ -105,6 +110,7 @@
                         </a>
                     </div>
                 </div>
+
                 <a class="carousel-control-prev" href="#carouselId" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="sr-only">Previous</span>
@@ -116,6 +122,55 @@
             </div>
         </section>
 
+        <!-- FAQ -->
+        <section class="content-card faq-section">
+            <header class="section-title">
+                <h1>Frequently Asked Questions (FAQ)</h1>
+                <p class="faq-intro">Here you can find answers to common questions about the website and KU</p>
+            </header>
+
+            <div class="faq-frame">
+                <div class="faq-accordion">
+                    <details>
+                        <summary><strong>General Questions (Click to reveal)</strong></summary>
+                        <h5>1. What is this website for?</h5>
+                        <ul>
+                            <li>
+                                It’s a platform for
+                                <a href="https://portal.ku.edu.kw" target="_blank" rel="noopener">Kuwait University</a>
+                                students and graduates to share study materials, join discussions, and explore Career
+                                Guidance.
+                            </li>
+                        </ul>
+                        <h5>2. Do I need an account to use this website?</h5>
+                        <ul>
+                            <li>Yes, you must use your University ID and password to log in.</li>
+                        </ul>
+                    </details>
+                    <hr>
+                    <details>
+                        <summary><strong>Portal Questions (Click to reveal)</strong></summary>
+                        <h5>1. When does the Portal system open after the deadline sent by the university via text
+                            message or the Sahal program?</h5>
+                        <ul>
+                            <li>It opens from 9:30 PM to 11:59 PM after the deadline.</li>
+                        </ul>
+                        <h5>2. Where can I find Timeline for registration, withdrawal, and add/drop processes for the
+                            first semester of the academic year 2025/2026</h5>
+                        <ul>
+                            <li>
+                                You can find it on the
+                                <a href="https://portal.ku.edu.kw/sisapp/faces/index.jspx?_adf.ctrl-state=14mr5qvoff_4&_afrLoop=4415188006164257"
+                                    target="_blank" rel="noopener">KU portal</a>
+                                on the home page after logging in.
+                            </li>
+                        </ul>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Access -->
         <section class="content-card" aria-labelledby="quick-access-heading">
             <div class="section-title">
                 <h2 id="quick-access-heading">Quick Access</h2>
@@ -132,6 +187,7 @@
                         <a href="{% url 'faq' %}">Read the answers</a>
                     </div>
                 </li>
+
                 <li class="media">
                     <a href="{% url 'profile' %}">
                         <img src="{% static 'images/section2-img/profile-section2.png' %}" alt="Profile section icon">
@@ -141,6 +197,7 @@
                         <a href="{% url 'profile' %}">Manage your information</a>
                     </div>
                 </li>
+
                 <li class="media">
                     <a href="{% url 'career' %}">
                         <img src="{% static 'images/section2-img/career-section2.png' %}" alt="Career section icon">
@@ -150,6 +207,7 @@
                         <a href="{% url 'career' %}">View guidance and events</a>
                     </div>
                 </li>
+
                 <li class="media">
                     <a href="{% url 'contact' %}">
                         <img src="{% static 'images/section2-img/contact.png' %}" alt="Contact section icon">

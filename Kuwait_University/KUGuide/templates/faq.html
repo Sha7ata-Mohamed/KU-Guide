@@ -1,7 +1,10 @@
 {% extends 'base.html' %}
-{% block title %} Frequently Asked Questions {% endblock %}
+{% load static %}
+{% block title %}Frequently Asked Questions{% endblock %}
 
-{% block content%}
+{# Inject page CSS (only this page) #}
+
+{% block content %}
 <main id="main" class="layout-container">
     <section class="faq-section">
         <header class="section-title">
@@ -27,19 +30,21 @@
                         <li>Yes, you must use your University ID and password to log in.</li>
                     </ul>
                 </details>
+
+                <hr>
+
                 <details>
-                    <summary><strong> Portal Questions (Click to reveal)</strong></summary>
-                    <h5>1. When does the Portal system open after the deadline sent by the university via text
-                        message or the Sahal program?</h5>
+                    <summary><strong>Portal Questions (Click to reveal)</strong></summary>
+                    <h5>1. When does the Portal system open after the deadline sent by the university via text message
+                        or the Sahal program?</h5>
+                    <ul>
+                        <li>It opens from 9:30 PM to 11:59 PM after the deadline.</li>
+                    </ul>
+                    <h5>2. Where can I find Timeline for registration, withdrawal, and add/drop processes for the first
+                        semester of the academic year 2025/2026</h5>
                     <ul>
                         <li>
-                            It opens from 9:30 PM to 11:59 PM after the deadline.
-                        </li>
-                    </ul>
-                    <h5>2. Where can I find Timeline for registration, withdrawal, and add/drop processes for the
-                        first semester of the academic year 2025/2026</h5>
-                    <ul>
-                        <li> You can find it on the
+                            You can find it on the
                             <a href="https://portal.ku.edu.kw/sisapp/faces/index.jspx?_adf.ctrl-state=14mr5qvoff_4&_afrLoop=4415188006164257"
                                 target="_blank" rel="noopener">KU portal</a>
                             on the home page after logging in.
@@ -55,8 +60,7 @@
                     <ul>
                         <li>
                             After logging in, please head to the
-                            <a href="{% url 'career' %}">Career Guidance</a>
-                            page.
+                            <a href="{% url 'career' %}">Career Guidance</a> page.
                         </li>
                     </ul>
                 </details>
@@ -69,8 +73,7 @@
                     <ul>
                         <li>
                             Click “Forgot password” or go to the
-                            <a href="https://portal.ku.edu.kw/sisapp/faces/index.jspx?_adf.ctrl-state=14mr5qvoff_4&_afrLoop=4415188006164257"
-                                target="_blank" rel="noopener">KU portal</a>
+                            <a href="https://portal.ku.edu.kw" target="_blank" rel="noopener">KU portal</a>
                             to reset your password.
                         </li>
                     </ul>
@@ -82,13 +85,14 @@
                     <summary><strong>Technical help</strong></summary>
                     <h5>5. How do I contact support?</h5>
                     <ul>
-                        <li>Please visit the <a href="{% url 'contact' %}" target="_blank" rel="noopener">Contact</a>
-                            page.</li>
+                        <li>
+                            Please visit the
+                            <a href="{% url 'contact' %}">Contact</a> page.
+                        </li>
                     </ul>
                 </details>
             </div>
         </div>
     </section>
 </main>
-
 {% endblock %}
