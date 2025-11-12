@@ -7,7 +7,6 @@ urlpatterns = [
     path("", views.index_view, name="index"),
     path("faq/", views.faq_view, name="faq"),
     path("career/", views.career_view, name="career"),
-
     path("profile/", views.profile_view, name="profile"),
     path("profile/edit/", views.profile_edit_view, name="profile_edit"),
     path("profile/settings/", views.profile_settings_view, name="profile_settings"),
@@ -17,7 +16,6 @@ urlpatterns = [
 
     path("contact/", views.contact_view, name="contact"),
     path("signin/", views.signin_view, name="signin"),
-    
     # Password Reset URLs
     path("password_reset/", auth_views.PasswordResetView.as_view(
         template_name="registration/password_reset_form.html",
