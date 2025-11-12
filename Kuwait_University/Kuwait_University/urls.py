@@ -15,7 +15,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path , include
+from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
 from KUGuide.admin_dashboard import KUGuideAdminSite
 
 admin_site = KUGuideAdminSite(name="KUGuideAdmin")
@@ -23,4 +25,9 @@ admin_site = KUGuideAdminSite(name="KUGuideAdmin")
 urlpatterns = [
     path('admin/', admin_site.urls),
     path('', include('KUGuide.urls')),
+    path("accounts/", include("django.contrib.auth.urls")),  # <-- adds password reset URLs
 ]
+
+# Serve media files in development
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

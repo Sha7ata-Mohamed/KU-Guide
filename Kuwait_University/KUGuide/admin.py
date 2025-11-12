@@ -10,26 +10,23 @@ from .models import (
     ContactMessage
 )
 
+# Use the custom admin site everywhere
 admin_site = KUGuideAdminSite(name="KUGuideAdmin")
 
-# Register models with the custom admin site
-admin_site.register(Profile)
-admin_site.register(FAQCategory)
-admin_site.register(FAQ)
-admin_site.register(Major)
-admin_site.register(Certification)
-admin_site.register(ChatbotQuery)
-admin_site.register(ContactMessage)
 
 # ==============================
 #  Profile Admin
 # ==============================
-@admin.register(Profile)
 class ProfileAdmin(admin.ModelAdmin):
-    list_display = ("user", "university_id", "major", "last_login")
+    list_display = ("user", "university_id", "major", "user_last_login")
     search_fields = ("user__username", "university_id", "major")
     list_filter = ("major",)
     ordering = ("user__username",)
+
+    def user_last_login(self, obj):
+        return obj.user.last_login
+    user_last_login.short_description = "Last login"
+    user_last_login.admin_order_field = "user__last_login"
 
 
 # ==============================
@@ -39,16 +36,12 @@ class FAQInline(admin.TabularInline):
     model = FAQ
     extra = 1
 
-
-@admin.register(FAQCategory)
 class FAQCategoryAdmin(admin.ModelAdmin):
     list_display = ("name", "description")
     inlines = [FAQInline]
     search_fields = ("name",)
     ordering = ("name",)
 
-
-@admin.register(FAQ)
 class FAQAdmin(admin.ModelAdmin):
     list_display = ("question", "category", "created_at")
     list_filter = ("category",)
@@ -63,16 +56,12 @@ class CertificationInline(admin.TabularInline):
     model = Certification
     extra = 1
 
-
-@admin.register(Major)
 class MajorAdmin(admin.ModelAdmin):
     list_display = ("name", "description")
     search_fields = ("name",)
     inlines = [CertificationInline]
     ordering = ("name",)
 
-
-@admin.register(Certification)
 class CertificationAdmin(admin.ModelAdmin):
     list_display = ("name", "major", "provider")
     list_filter = ("major", "provider")
@@ -83,7 +72,6 @@ class CertificationAdmin(admin.ModelAdmin):
 # ==============================
 #  Chatbot Query Admin
 # ==============================
-@admin.register(ChatbotQuery)
 class ChatbotQueryAdmin(admin.ModelAdmin):
     list_display = ("user", "question", "timestamp")
     search_fields = ("user__username", "question", "response")
@@ -94,7 +82,6 @@ class ChatbotQueryAdmin(admin.ModelAdmin):
 # ==============================
 #  Contact Message Admin
 # ==============================
-@admin.register(ContactMessage)
 class ContactMessageAdmin(admin.ModelAdmin):
     list_display = ("name", "email", "created_at")
     search_fields = ("name", "email", "message")
@@ -102,3 +89,11 @@ class ContactMessageAdmin(admin.ModelAdmin):
     ordering = ("-created_at",)
 
 
+# ===== Register everything with the custom admin site (exactly once) =====
+admin_site.register(Profile, ProfileAdmin)
+admin_site.register(FAQCategory, FAQCategoryAdmin)
+admin_site.register(FAQ, FAQAdmin)
+admin_site.register(Major, MajorAdmin)
+admin_site.register(Certification, CertificationAdmin)
+admin_site.register(ChatbotQuery, ChatbotQueryAdmin)
+admin_site.register(ContactMessage, ContactMessageAdmin)
