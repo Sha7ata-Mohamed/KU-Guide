@@ -3,96 +3,95 @@
 {% block title %}Frequently Asked Questions{% endblock %}
 
 {# Inject page CSS (only this page) #}
-
+{% block body_class %}page-faq{% endblock %}
 {% block content %}
-<main id="main" class="layout-container">
-    <section class="faq-section">
-        <header class="section-title">
-            <h1>Frequently Asked Questions (FAQ)</h1>
-            <p class="faq-intro">Here you can find answers to common questions about the website and KU</p>
-        </header>
 
-        <div class="faq-frame">
-            <div class="faq-accordion">
-                <details>
-                    <summary><strong>General Questions (Click to reveal)</strong></summary>
-                    <h5>1. What is this website for?</h5>
-                    <ul>
-                        <li>
-                            It’s a platform for
-                            <a href="https://portal.ku.edu.kw" target="_blank" rel="noopener">Kuwait University</a>
-                            students and graduates to share study materials, join discussions, and explore Career
-                            Guidance.
-                        </li>
-                    </ul>
-                    <h5>2. Do I need an account to use this website?</h5>
-                    <ul>
-                        <li>Yes, you must use your University ID and password to log in.</li>
-                    </ul>
-                </details>
+<section class="faq-section">
+    <header class="section-title">
+        <h1>Frequently Asked Questions (FAQ)</h1>
+        <p class="faq-intro">Here you can find answers to common questions about the website and KU</p>
+    </header>
 
-                <hr>
+    <div class="faq-frame">
+        <div class="faq-accordion">
+            <details>
+                <summary><strong>General Questions (Click to reveal)</strong></summary>
+                <h5>1. What is this website for?</h5>
+                <ul>
+                    <li>
+                        It’s a platform for
+                        <a href="https://portal.ku.edu.kw" target="_blank" rel="noopener">Kuwait University</a>
+                        students and graduates to share study materials, join discussions, and explore Career
+                        Guidance.
+                    </li>
+                </ul>
+                <h5>2. Do I need an account to use this website?</h5>
+                <ul>
+                    <li>Yes, you must use your University ID and password to log in.</li>
+                </ul>
+            </details>
 
-                <details>
-                    <summary><strong>Portal Questions (Click to reveal)</strong></summary>
-                    <h5>1. When does the Portal system open after the deadline sent by the university via text message
-                        or the Sahal program?</h5>
-                    <ul>
-                        <li>It opens from 9:30 PM to 11:59 PM after the deadline.</li>
-                    </ul>
-                    <h5>2. Where can I find Timeline for registration, withdrawal, and add/drop processes for the first
-                        semester of the academic year 2025/2026</h5>
-                    <ul>
-                        <li>
-                            You can find it on the
-                            <a href="https://portal.ku.edu.kw/sisapp/faces/index.jspx?_adf.ctrl-state=14mr5qvoff_4&_afrLoop=4415188006164257"
-                                target="_blank" rel="noopener">KU portal</a>
-                            on the home page after logging in.
-                        </li>
-                    </ul>
-                </details>
+            <hr>
 
-                <hr>
+            <details>
+                <summary><strong> Portal Questions (Click to reveal)</strong></summary>
+                <h5>1. When does the Portal system open after the deadline sent by the university via text
+                    message or the Sahal program?</h5>
+                <ul>
+                    <li>
+                        It opens from 9:30 PM to 11:59 PM after the deadline.
+                    </li>
+                </ul>
+                <h5>2. Where can I find Timeline for registration, withdrawal, and add/drop processes for the
+                    first semester of the academic year 2025/2026</h5>
+                <ul>
+                    <li> You can find it on the
+                        <a href="https://portal.ku.edu.kw/sisapp/faces/index.jspx?_adf.ctrl-state=14mr5qvoff_4&_afrLoop=4415188006164257"
+                            target="_blank" rel="noopener">KU portal</a>
+                        on the home page after logging in.
+                    </li>
+                </ul>
+            </details>
 
-                <details>
-                    <summary><strong>Career Guidance Questions (Click to reveal)</strong></summary>
-                    <h5>3. Where can I find job opportunities?</h5>
-                    <ul>
-                        <li>
-                            After logging in, please head to the
-                            <a href="{% url 'career' %}">Career Guidance</a> page.
-                        </li>
-                    </ul>
-                </details>
+            <hr>
 
-                <hr>
+            <details>
+                <summary><strong>Career Guidance Questions (Click to reveal)</strong></summary>
+                <h5>3. Where can I find job opportunities?</h5>
+                <ul>
+                    <li>
+                        After logging in, please head to the
+                        <a href="../Templates/career.html" target="_blank" rel="noopener">Career Guidance</a>
+                        page.
+                    </li>
+                </ul>
+            </details>
 
-                <details>
-                    <summary><strong>Account help (Click to reveal)</strong></summary>
-                    <h5>4. How do I reset my password?</h5>
-                    <ul>
-                        <li>
-                            Click “Forgot password” or go to the
-                            <a href="https://portal.ku.edu.kw" target="_blank" rel="noopener">KU portal</a>
-                            to reset your password.
-                        </li>
-                    </ul>
-                </details>
+            <hr>
 
-                <hr>
+            <details>
+                <summary><strong>Account help (Click to reveal)</strong></summary>
+                <h5>4. How do I reset my password?</h5>
+                <ul>
+                    <li>
+                        Click “Forgot password” or go to the
+                        <a href="https://portal.ku.edu.kw" target="_blank" rel="noopener">KU portal</a>
+                        to reset your password.
+                    </li>
+                </ul>
+            </details>
 
-                <details>
-                    <summary><strong>Technical help</strong></summary>
-                    <h5>5. How do I contact support?</h5>
-                    <ul>
-                        <li>
-                            Please visit the
-                            <a href="{% url 'contact' %}">Contact</a> page.
-                        </li>
-                    </ul>
-                </details>
-            </div>
+            <hr>
+
+            <details>
+                <summary><strong>Technical help</strong></summary>
+                <h5>5. How do I contact support?</h5>
+                <ul>
+                    <li>Please visit the <a href="{% url 'contant'%}" target="_blank" rel="noopener">Contact</a>
+                        page.</li>
+                </ul>
+            </details>
         </div>
-    </section>
-</main>
+    </div>
+</section>
 {% endblock %}

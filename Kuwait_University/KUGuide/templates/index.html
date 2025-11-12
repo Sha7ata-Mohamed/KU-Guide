@@ -1,224 +1,248 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block title %}Home - KUGuide{% endblock %}
+{% block body_class %}page-home{% endblock %}
 
 {% block content %}
-<main id="main-content" tabindex="-1">
-    <div class="layout-container">
-        <!-- Hero -->
-        <section class="hero" aria-labelledby="hero-heading">
-            <h1 id="hero-heading">Welcome to Kuwait University Guide</h1>
-            <p>Access curated learning materials, stay connected with classmates, receive AI-powered support, and move
-                confidently toward your next Career Guidance opportunity.</p>
-            <div class="hero-actions">
-                <a class="btn btn-primary" href="{% url 'signin' %}">Sign In</a>
-                <a class="btn btn-primary" href="{% url 'faq' %}">Frequently Asked Questions</a>
-            </div>
-        </section>
+<div class="layout-container">
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="hero-heading">
+        <h1 id="hero-heading">Welcome to Kuwait University Guide</h1>
+        <p>Access curated learning materials, stay connected with classmates, receive AI-powered support, and move
+            confidently toward your next Career Guidance opportunity.</p>
+        <div class="hero-actions">
+            <a class="btn btn-primary" href="{% url 'signin' %}">Sign In</a>
+            <a class="btn btn-primary" href="{% url 'faq' %}">Frequently Asked Questions</a>
+        </div>
+    </section>
 
-        <!-- Feature cards -->
-        <section class="content-card" aria-labelledby="features-heading">
-            <div class="section-title">
-                <h2 id="features-heading">Everything You Need</h2>
-                <p>Four pillars designed to support Kuwait University students throughout their academic journey and
-                    meet market demands</p>
-            </div>
+    <!-- Feature cards -->
+    <section class="content-card" aria-labelledby="features-heading">
+        <div class="section-title">
+            <h2 id="features-heading">Everything You Need</h2>
+            <p>Four pillars designed to support Kuwait University students throughout their academic journey and
+                meet market demands</p>
+        </div>
 
-            <div class="feature-grid">
-                <article class="card h-100" aria-labelledby="community-title">
-                    <img class="card-img-top" src="{% static 'images/section1-img/Student-community.png' %}"
-                        alt="Students collaborating together">
-                    <div class="card-body text-center">
-                        <h3 class="card-title" id="community-title">Student Community</h3>
-                        <p class="card-text">Join lively course discussions, exchange experiences, and build a strong
-                            academic network.</p>
-                    </div>
-                </article>
-
-                <article class="card h-100" aria-labelledby="materials-title">
-                    <img class="card-img-top-study" src="{% static 'images/section1-img/Study-materials.png' %}"
-                        alt="Lecture notes and study materials">
-                    <div class="card-body text-center">
-                        <h3 class="card-title" id="materials-title">Study Materials</h3>
-                        <p class="card-text">Browse curated notes, textbooks, and revision guides tailored to your
-                            registered courses.</p>
-                    </div>
-                </article>
-
-                <article class="card h-100" aria-labelledby="assistant-title">
-                    <img class="card-img-top" src="{% static 'images/section1-img/AI-chatbot.png' %}"
-                        alt="AI assistant helping students">
-                    <div class="card-body text-center">
-                        <h3 class="card-title" id="assistant-title">AI Assistant</h3>
-                        <p class="card-text">Receive quick answers to academic questions and personalised guidance
-                            whenever you need it.</p>
-                    </div>
-                </article>
-
-                <article class="card h-100" aria-labelledby="career-title">
-                    <img class="card-img-top-career" src="{% static 'images/section1-img/career.png' %}"
-                        alt="Graduate celebrating job success">
-                    <div class="card-body text-center">
-                        <h3 class="card-title" id="career-title">Career Guidance</h3>
-                        <p class="card-text">Discover internships, mentorship programmes, and job opportunities in
-                            partnership with OSTA.</p>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <!-- Carousel -->
-        <section class="content-card" aria-labelledby="carousel-heading">
-            <div class="section-title">
-                <h2 id="carousel-heading">Highlights from the Community</h2>
-                <p>Stay up to date with the latest announcements and collaborations across Kuwait University.</p>
-            </div>
-
-            <div id="carouselId" class="carousel slide" data-ride="carousel" data-interval="2000">
-                <ol class="carousel-indicators">
-                    <li data-target="#carouselId" data-slide-to="0" class="active"></li>
-                    <li data-target="#carouselId" data-slide-to="1"></li>
-                    <li data-target="#carouselId" data-slide-to="2"></li>
-                    <li data-target="#carouselId" data-slide-to="3"></li>
-                    <li data-target="#carouselId" data-slide-to="4"></li>
-                </ol>
-
-                <div class="carousel-inner" role="listbox">
-                    <div class="carousel-item active">
-                        <a href="https://www.instagram.com/p/DQY3ah6DZkQ/" target="_blank" rel="noopener">
-                            <img src="{% static 'images/carousel/osta-cba.png' %}" alt="OSTA CBA event banner 1">
-                        </a>
-                    </div>
-                    <div class="carousel-item">
-                        <a href="https://www.instagram.com/p/DQY3eTujb6n/" target="_blank" rel="noopener">
-                            <img src="{% static 'images/carousel/osta-cba-1.png' %}" alt="OSTA CBA event banner 2">
-                        </a>
-                    </div>
-                    <div class="carousel-item">
-                        <a href="https://www.instagram.com/p/DQBd9JvjCrO/" target="_blank" rel="noopener">
-                            <img src="{% static 'images/carousel/osta-cba-2.png' %}" alt="OSTA CBA event banner 3">
-                        </a>
-                    </div>
-                    <div class="carousel-item">
-                        <a href="https://www.instagram.com/p/DPySr6PDKGJ/" target="_blank" rel="noopener">
-                            <img src="{% static 'images/carousel/osta-cba-3.png' %}" alt="OSTA CBA event banner 4">
-                        </a>
-                    </div>
-                    <div class="carousel-item">
-                        <a href="https://www.instagram.com/p/DQY3VzHDWrm/" target="_blank" rel="noopener">
-                            <img src="{% static 'images/carousel/osta-cba-4.png' %}" alt="OSTA CBA event banner 5">
-                        </a>
-                    </div>
+        <div class="feature-grid">
+            <article class="card h-100" aria-labelledby="community-title">
+                <img class="card-img-top" src="{% static 'images/section1-img/Student-community.png' %}"
+                    alt="Students collaborating together">
+                <div class="card-body text-center">
+                    <h3 class="card-title" id="community-title">Student Community</h3>
+                    <p class="card-text">Join lively course discussions, exchange experiences, and build a strong
+                        academic network.</p>
                 </div>
+            </article>
 
-                <a class="carousel-control-prev" href="#carouselId" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselId" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
+            <article class="card h-100" aria-labelledby="materials-title">
+                <img class="card-img-top-study" src="{% static 'images/section1-img/Study-materials.png' %}"
+                    alt="Lecture notes and study materials">
+                <div class="card-body text-center">
+                    <h3 class="card-title" id="materials-title">Study Materials</h3>
+                    <p class="card-text">Browse curated notes, textbooks, and revision guides tailored to your
+                        registered courses.</p>
+                </div>
+            </article>
+
+            <article class="card h-100" aria-labelledby="assistant-title">
+                <img class="card-img-top" src="{% static 'images/section1-img/AI-chatbot.png' %}"
+                    alt="AI assistant helping students">
+                <div class="card-body text-center">
+                    <h3 class="card-title" id="assistant-title">AI Assistant</h3>
+                    <p class="card-text">Receive quick answers to academic questions and personalised guidance
+                        whenever you need it.</p>
+                </div>
+            </article>
+
+            <article class="card h-100" aria-labelledby="career-title">
+                <img class="card-img-top-career" src="{% static 'images/section1-img/career.png' %}"
+                    alt="Graduate celebrating job success">
+                <div class="card-body text-center">
+                    <h3 class="card-title" id="career-title">Career Guidance</h3>
+                    <p class="card-text">Discover internships, mentorship programmes, and job opportunities in
+                        partnership with OSTA.</p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Carousel -->
+    <section class="content-card" aria-labelledby="carousel-heading">
+        <div class="section-title">
+            <h2 id="carousel-heading">Highlights from the Community</h2>
+            <p>Stay up to date with the latest announcements and collaborations across Kuwait University.</p>
+        </div>
+
+        <div id="carouselId" class="carousel slide" data-ride="carousel" data-interval="2000">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselId" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselId" data-slide-to="1"></li>
+                <li data-target="#carouselId" data-slide-to="2"></li>
+                <li data-target="#carouselId" data-slide-to="3"></li>
+                <li data-target="#carouselId" data-slide-to="4"></li>
+            </ol>
+
+            <div class="carousel-inner" role="listbox">
+                <div class="carousel-item active">
+                    <a href="https://www.instagram.com/p/DQY3ah6DZkQ/" target="_blank" rel="noopener">
+                        <img src="{% static 'images/carousel/osta-cba.png' %}" alt="OSTA CBA event banner 1">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="https://www.instagram.com/p/DQY3eTujb6n/" target="_blank" rel="noopener">
+                        <img src="{% static 'images/carousel/osta-cba-1.png' %}" alt="OSTA CBA event banner 2">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="https://www.instagram.com/p/DQBd9JvjCrO/" target="_blank" rel="noopener">
+                        <img src="{% static 'images/carousel/osta-cba-2.png' %}" alt="OSTA CBA event banner 3">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="https://www.instagram.com/p/DPySr6PDKGJ/" target="_blank" rel="noopener">
+                        <img src="{% static 'images/carousel/osta-cba-3.png' %}" alt="OSTA CBA event banner 4">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="https://www.instagram.com/p/DQY3VzHDWrm/" target="_blank" rel="noopener">
+                        <img src="{% static 'images/carousel/osta-cba-4.png' %}" alt="OSTA CBA event banner 5">
+                    </a>
+                </div>
             </div>
-        </section>
 
-        <!-- FAQ -->
-        <section class="content-card faq-section">
-            <header class="section-title">
-                <h1>Frequently Asked Questions (FAQ)</h1>
-                <p class="faq-intro">Here you can find answers to common questions about the website and KU</p>
-            </header>
+            <a class="carousel-control-prev" href="#carouselId" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselId" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </section>
 
-            <div class="faq-frame">
-                <div class="faq-accordion">
-                    <details>
-                        <summary><strong>General Questions (Click to reveal)</strong></summary>
-                        <h5>1. What is this website for?</h5>
-                        <ul>
-                            <li>
-                                It’s a platform for
-                                <a href="https://portal.ku.edu.kw" target="_blank" rel="noopener">Kuwait University</a>
+    <!-- FAQ -->
+    <section class="bg-white rounded-lg shadow-lg p-4 p-md-5 my-5">
+        <header class="text-center mb-4">
+            <h1 class="h2 text-primary font-weight-bold mb-2">Frequently Asked Questions (FAQ)</h1>
+            <p class="mb-0 text-primary">Here you can find answers to common questions about the website and KU</p>
+        </header>
+
+        <div id="faqAccordion" class="mx-auto">
+            <!-- Item 1 -->
+            <div class="card border-0 shadow-sm mb-3 rounded-lg">
+                <div class="card-header bg-white border-0 rounded-lg p-0">
+                    <h5 class="mb-0">
+                        <button class="btn btn-block text-left d-flex align-items-center justify-content-between p-3"
+                            type="button" data-toggle="collapse" data-target="#faq1" aria-expanded="false"
+                            aria-controls="faq1">
+                            <span class="text-primary font-weight-bold">General Questions (Click to reveal)</span>
+                            <span class="text-primary small ml-3">&#9662;</span>
+                        </button>
+                    </h5>
+                </div>
+                <div id="faq1" class="collapse" data-parent="#faqAccordion">
+                    <div class="card-body pt-0">
+                        <h5 class="h6 text-primary font-weight-bold">1. What is this website for?</h5>
+                        <ul class="mb-3 pl-3">
+                            <li>It’s a platform for
+                                <a href="https://portal.ku.edu.kw" target="_blank" rel="noopener"
+                                    class="font-weight-bold">Kuwait University</a>
                                 students and graduates to share study materials, join discussions, and explore Career
                                 Guidance.
                             </li>
                         </ul>
-                        <h5>2. Do I need an account to use this website?</h5>
-                        <ul>
+                        <h5 class="h6 text-primary font-weight-bold">2. Do I need an account to use this website?</h5>
+                        <ul class="mb-0 pl-3">
                             <li>Yes, you must use your University ID and password to log in.</li>
                         </ul>
-                    </details>
-                    <hr>
-                    <details>
-                        <summary><strong>Portal Questions (Click to reveal)</strong></summary>
-                        <h5>1. When does the Portal system open after the deadline sent by the university via text
-                            message or the Sahal program?</h5>
-                        <ul>
-                            <li>It opens from 9:30 PM to 11:59 PM after the deadline.</li>
-                        </ul>
-                        <h5>2. Where can I find Timeline for registration, withdrawal, and add/drop processes for the
-                            first semester of the academic year 2025/2026</h5>
-                        <ul>
-                            <li>
-                                You can find it on the
-                                <a href="https://portal.ku.edu.kw/sisapp/faces/index.jspx?_adf.ctrl-state=14mr5qvoff_4&_afrLoop=4415188006164257"
-                                    target="_blank" rel="noopener">KU portal</a>
-                                on the home page after logging in.
-                            </li>
-                        </ul>
-                    </details>
+                    </div>
                 </div>
             </div>
-        </section>
 
-        <!-- Quick Access -->
-        <section class="content-card" aria-labelledby="quick-access-heading">
-            <div class="section-title">
-                <h2 id="quick-access-heading">Quick Access</h2>
-                <p>Jump directly to the areas of KUGuide that you use most often.</p>
+            <!-- Item 2 -->
+            <div class="card border-0 shadow-sm mb-3 rounded-lg">
+                <div class="card-header bg-white border-0 rounded-lg p-0">
+                    <h5 class="mb-0">
+                        <button class="btn btn-block text-left d-flex align-items-center justify-content-between p-3"
+                            type="button" data-toggle="collapse" data-target="#faq2" aria-expanded="false"
+                            aria-controls="faq2">
+                            <span class="text-primary font-weight-bold">Portal Questions (Click to reveal)</span>
+                            <span class="text-primary small ml-3">&#9662;</span>
+                        </button>
+                    </h5>
+                </div>
+                <div id="faq2" class="collapse" data-parent="#faqAccordion">
+                    <div class="card-body pt-0">
+                        <h5 class="h6 text-primary font-weight-bold">1. When does the Portal system open after the
+                            deadline?</h5>
+                        <ul class="mb-3 pl-3">
+                            <li>It opens from 9:30 PM to 11:59 PM after the deadline.</li>
+                        </ul>
+                        <h5 class="h6 text-primary font-weight-bold">2. Where is the timeline for registration/add-drop?
+                        </h5>
+                        <ul class="mb-0 pl-3">
+                            <li>You can find it on the
+                                <a href="https://portal.ku.edu.kw/sisapp/faces/index.jspx?_adf.ctrl-state=14mr5qvoff_4&_afrLoop=4415188006164257"
+                                    target="_blank" rel="noopener" class="font-weight-bold">KU portal</a>
+                                home page after logging in.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
+        </div>
+    </section>
 
-            <ul class="list-unstyled quick-links">
-                <li class="media">
-                    <a href="{% url 'faq' %}">
-                        <img src="{% static 'images/section2-img/faq-section2.png' %}" alt="FAQ section icon">
-                    </a>
-                    <div class="media-body">
-                        <h5>Frequently Asked Questions</h5>
-                        <a href="{% url 'faq' %}">Read the answers</a>
-                    </div>
-                </li>
+    <!-- Quick Access -->
+    <section class="content-card" aria-labelledby="quick-access-heading">
+        <div class="section-title">
+            <h2 id="quick-access-heading">Quick Access</h2>
+            <p>Jump directly to the areas of KUGuide that you use most often.</p>
+        </div>
 
-                <li class="media">
-                    <a href="{% url 'profile' %}">
-                        <img src="{% static 'images/section2-img/profile-section2.png' %}" alt="Profile section icon">
-                    </a>
-                    <div class="media-body">
-                        <h5>Student Profile</h5>
-                        <a href="{% url 'profile' %}">Manage your information</a>
-                    </div>
-                </li>
+        <ul class="list-unstyled quick-links">
+            <li class="media">
+                <a href="{% url 'faq' %}">
+                    <img src="{% static 'images/section2-img/faq-section2.png' %}" alt="FAQ section icon">
+                </a>
+                <div class="media-body">
+                    <h5>Frequently Asked Questions</h5>
+                    <a href="{% url 'faq' %}">Read the answers</a>
+                </div>
+            </li>
 
-                <li class="media">
-                    <a href="{% url 'career' %}">
-                        <img src="{% static 'images/section2-img/career-section2.png' %}" alt="Career section icon">
-                    </a>
-                    <div class="media-body">
-                        <h5>Career Pathways</h5>
-                        <a href="{% url 'career' %}">View guidance and events</a>
-                    </div>
-                </li>
+            <li class="media">
+                <a href="{% url 'profile' %}">
+                    <img src="{% static 'images/section2-img/profile-section2.png' %}" alt="Profile section icon">
+                </a>
+                <div class="media-body">
+                    <h5>Student Profile</h5>
+                    <a href="{% url 'profile' %}">Manage your information</a>
+                </div>
+            </li>
 
-                <li class="media">
-                    <a href="{% url 'contact' %}">
-                        <img src="{% static 'images/section2-img/contact.png' %}" alt="Contact section icon">
-                    </a>
-                    <div class="media-body">
-                        <h5>Contact Us</h5>
-                        <a href="{% url 'contact' %}">Reach out for help, feedback, or inquiries.</a>
-                    </div>
-                </li>
-            </ul>
-        </section>
-    </div>
-</main>
+            <li class="media">
+                <a href="{% url 'career' %}">
+                    <img src="{% static 'images/section2-img/career-section2.png' %}" alt="Career section icon">
+                </a>
+                <div class="media-body">
+                    <h5>Career Pathways</h5>
+                    <a href="{% url 'career' %}">View guidance and events</a>
+                </div>
+            </li>
+
+            <li class="media">
+                <a href="{% url 'contact' %}">
+                    <img src="{% static 'images/section2-img/contact.png' %}" alt="Contact section icon">
+                </a>
+                <div class="media-body">
+                    <h5>Contact Us</h5>
+                    <a href="{% url 'contact' %}">Reach out for help, feedback, or inquiries.</a>
+                </div>
+            </li>
+        </ul>
+    </section>
+</div>
 {% endblock %}

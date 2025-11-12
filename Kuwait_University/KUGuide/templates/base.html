@@ -21,7 +21,7 @@
     <link rel="icon" href="{% static 'images/section1-img/kuwait-university-logo.webp' %}" type="image/png">
 </head>
 
-<body>
+<body class="{% block body_class %}{% endblock %}">
     <div class="alert-link" role="alert">
         <nav class="navbar navbar-expand-md navbar-light custom-navbar">
             <a class="navbar-brand" href="{% url 'index' %}">
@@ -50,11 +50,11 @@
         </nav>
     </div>
 
-    <main id="main" class="layout-container">
 
-        {% block content %}
-        {% endblock %}
-    </main>
+
+    {% block content %}
+    {% endblock %}
+
 
 
     <footer>

@@ -13,17 +13,16 @@
 
 /* Page background, typography, and top offset for fixed navbar */
 body {
-  flex-wrap: wrap; /* harmless on body (no display:flex); kept to avoid changing layout assumptions */
+  flex-wrap: wrap;
+  /* harmless on body (no display:flex); kept to avoid changing layout assumptions */
   margin: 0;
   padding-top: 100px;
   color: var(--text-dark);
   font-family: "Segoe UI", Arial, sans-serif;
-  background: linear-gradient(
-    180deg,
-    rgba(17, 75, 136, 0.06) 0%,
-    rgba(248, 249, 250, 1) 35%,
-    rgba(248, 249, 250, 1) 100%
-  );
+  background: linear-gradient(180deg,
+      rgba(17, 75, 136, 0.06) 0%,
+      rgba(248, 249, 250, 1) 35%,
+      rgba(248, 249, 250, 1) 100%);
 }
 
 /* =========================================
@@ -40,8 +39,10 @@ body {
   font-weight: 600;
   line-height: 1.35;
   text-align: center;
-  border-radius: 12px; /* keeps the rounded look in cards */
-  word-break: break-word; /* never crop long words */
+  border-radius: 12px;
+  /* keeps the rounded look in cards */
+  word-break: break-word;
+  /* never crop long words */
 }
 
 /* Neutralize any legacy fixed sizing on fallbacks inside cards/quick-links */
@@ -147,10 +148,12 @@ main:focus {
 
 /* Logo bounce keyframes */
 @keyframes bounce {
+
   0%,
   100% {
     transform: translateY(4px);
   }
+
   50% {
     transform: translateY(-6px);
   }
@@ -251,7 +254,8 @@ main:focus {
   background-color: var(--surface);
   border-radius: 20px;
   padding: 2.5rem 2rem;
-  box-shadow: none; /* FIX: was 'rgb(11, 77, 138)' (invalid), which rendered as no shadow; keep visual unchanged */
+  box-shadow: none;
+  /* FIX: was 'rgb(11, 77, 138)' (invalid), which rendered as no shadow; keep visual unchanged */
   margin-bottom: 2.5rem;
   margin-top: 5rem;
 }
@@ -327,11 +331,9 @@ main:focus {
    ========================================= */
 
 .page-home .faq-section {
-  background: radial-gradient(
-      1200px 400px at 80% -100%,
+  background: radial-gradient(1200px 400px at 80% -100%,
       rgba(17, 75, 136, 0.06),
-      transparent 60%
-    ),
+      transparent 60%),
     var(--surface);
   border-radius: 20px;
   padding: 2.5rem 2rem;
@@ -409,7 +411,7 @@ main:focus {
   opacity: 0.8;
 }
 
-.page-home .faq-section .faq-accordion details[open] > summary::after {
+.page-home .faq-section .faq-accordion details[open]>summary::after {
   transform: translateY(-50%) rotate(-135deg);
 }
 
@@ -425,7 +427,7 @@ main:focus {
   color: var(--text-dark);
 }
 
-.page-home .faq-section .faq-accordion h5 + ul {
+.page-home .faq-section .faq-accordion h5+ul {
   border-left: 3px solid rgba(17, 75, 136, 0.15);
   margin-left: 0.35rem;
   padding-left: 1rem;
@@ -937,7 +939,7 @@ main:focus {
   min-height: auto;
 }
 
-.custom-control-input:focus ~ .custom-control-label::before {
+.custom-control-input:focus~.custom-control-label::before {
   box-shadow: 0 0 0 0.2rem rgba(17, 75, 136, 0.25);
 }
 
@@ -1024,6 +1026,7 @@ footer {
     grid-template-columns: 1fr;
     padding-top: 1.5rem;
   }
+
   .auth-support {
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   }
@@ -1033,13 +1036,16 @@ footer {
   .auth-form {
     gap: 1rem;
   }
+
   .auth-form .btn {
     box-shadow: 0 8px 16px rgba(220, 223, 225, 0.18);
   }
+
   .form-utilities {
     flex-direction: column;
     align-items: flex-start;
   }
+
   .support-actions {
     grid-template-columns: 1fr;
   }
@@ -1064,10 +1070,12 @@ footer {
   .custom-navbar .navbar-collapse {
     width: 100%;
   }
+
   .navbar-nav {
     text-align: center;
     width: 100%;
   }
+
   .navbar-nav .nav-link {
     width: 100%;
   }
@@ -1082,6 +1090,7 @@ footer {
   .hero {
     padding: 3rem 1rem;
   }
+
   .contact-grid {
     grid-template-columns: 1fr;
   }
@@ -1139,11 +1148,9 @@ footer {
 }
 
 .page-faq .faq-section {
-  background: radial-gradient(
-      1200px 400px at 80% -100%,
+  background: radial-gradient(1200px 400px at 80% -100%,
       rgba(17, 75, 136, 0.06),
-      transparent 60%
-    ),
+      transparent 60%),
     var(--surface);
   border-radius: 20px;
   padding: 2.5rem 2rem;
@@ -1200,6 +1207,7 @@ footer {
 .page-faq .faq-accordion summary::-webkit-details-marker {
   display: none;
 }
+
 .page-faq .faq-accordion summary::marker {
   content: "";
 }
@@ -1231,7 +1239,7 @@ footer {
   opacity: 0.8;
 }
 
-.page-faq .faq-accordion details[open] > summary::after {
+.page-faq .faq-accordion details[open]>summary::after {
   transform: translateY(-50%) rotate(-135deg);
 }
 
@@ -1247,7 +1255,7 @@ footer {
   color: var(--text-dark);
 }
 
-.page-faq .faq-accordion h5 + ul {
+.page-faq .faq-accordion h5+ul {
   border-left: 3px solid rgba(17, 75, 136, 0.15);
   margin-left: 0.35rem;
   padding-left: 1rem;
@@ -1269,12 +1277,16 @@ footer {
 
 .page-home .faq-section .faq-accordion a,
 .page-faq .faq-accordion a {
-  color: #0b3e73; /* deeper blue for contrast */
-  font-weight: 700; /* bolder */
-  text-decoration: underline; /* always visible */
+  color: #0b3e73;
+  /* deeper blue for contrast */
+  font-weight: 700;
+  /* bolder */
+  text-decoration: underline;
+  /* always visible */
   text-decoration-thickness: 0.12em;
   text-underline-offset: 0.15em;
-  border-bottom: none !important; /* override dashed underline */
+  border-bottom: none !important;
+  /* override dashed underline */
 }
 
 /* Hover / focus intent */
@@ -1313,13 +1325,11 @@ footer {
   border: 0;
   height: 1px;
   margin: 0.9rem 0 0;
-  background: linear-gradient(
-    to right,
-    transparent,
-    rgba(17, 75, 136, 0.12) 20%,
-    rgba(17, 75, 136, 0.12) 80%,
-    transparent
-  );
+  background: linear-gradient(to right,
+      transparent,
+      rgba(17, 75, 136, 0.12) 20%,
+      rgba(17, 75, 136, 0.12) 80%,
+      transparent);
 }
 
 /* Optional white frame wrapper around FAQ groups */
@@ -1332,6 +1342,7 @@ footer {
 
 /* Motion + mobile tweaks for FAQ page */
 @media (prefers-reduced-motion: reduce) {
+
   .page-faq .faq-accordion details,
   .page-faq .faq-accordion summary::after {
     transition: none;
@@ -1342,9 +1353,11 @@ footer {
   .page-faq .faq-section {
     padding: 2rem 1.25rem;
   }
+
   .page-faq .faq-accordion details {
     padding: 0.65rem 0.75rem;
   }
+
   .page-faq .faq-accordion h5 {
     font-size: 1.07rem;
   }
