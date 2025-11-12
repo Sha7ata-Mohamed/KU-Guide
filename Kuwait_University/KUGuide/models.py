@@ -1,25 +1,22 @@
+# KUGuide/models.py
 from django.db import models
 from django.contrib.auth.models import User
 
+def profile_upload_to(instance, filename):
+    return f"profile_pics/user_{instance.user_id}/{filename}"
 
-# ==============================
-#  User Profile
-# ==============================
 class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="profile")
     university_id = models.CharField(max_length=15, unique=True)
-    major = models.CharField(max_length=100)
+    major = models.CharField(max_length=100, blank=True)
     bio = models.TextField(blank=True)
-    profile_picture = models.ImageField(upload_to='profile_pics/', blank=True)
-    last_login = models.DateTimeField(auto_now=True)
+    profile_picture = models.ImageField(upload_to=profile_upload_to, blank=True, null=True)
+    updated_at = models.DateTimeField(auto_now=True)  # clearer than "last_login"
 
     def __str__(self):
-        return f"Hello{self.user.username} ({self.major})"
+        return f"{self.user.username} ({self.major or '—'})"
 
 
-# ==============================
-#  FAQ Section
-# ==============================
 class FAQCategory(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField(blank=True)
@@ -41,9 +38,6 @@ class FAQ(models.Model):
         return self.question[:70]
 
 
-# ==============================
-#  Majors & Certifications
-# ==============================
 class Major(models.Model):
     name = models.CharField(max_length=100, unique=True)
     description = models.TextField(blank=True)
@@ -63,9 +57,6 @@ class Certification(models.Model):
         return f"{self.name} - {self.major.name}"
 
 
-# ==============================
-#  Chatbot Queries
-# ==============================
 class ChatbotQuery(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="chatbot_queries")
     question = models.TextField()
@@ -76,9 +67,6 @@ class ChatbotQuery(models.Model):
         return f"Query by {self.user.username} on {self.timestamp.strftime('%Y-%m-%d %H:%M')}"
 
 
-# ==============================
-#  Contact Messages
-# ==============================
 class ContactMessage(models.Model):
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True, related_name="contact_messages")
     name = models.CharField(max_length=100)

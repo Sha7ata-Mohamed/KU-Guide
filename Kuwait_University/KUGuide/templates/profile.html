@@ -1,7 +1,80 @@
-{% extends 'base.html'%}
-{% block title %} Profile {% endblock %}
+{# KUGuide/templates/profile.html #}
+{% extends "base.html" %}
+{% load static %}
+{% block title %}My Profile{% endblock %}
 
 {% block content %}
-<h1>Profile page </h1>
+<main id="main" class="layout-container" tabindex="-1">
 
+  {# -------- Profile header card -------- #}
+  <section class="page-frame" aria-labelledby="profileHeading">
+    <h2 id="profileHeading" class="visually-hidden">Student Profile</h2>
+
+    <div class="profile-header">
+      <div class="profile-id">
+        <div><strong>Student Full Name</strong></div>
+        <div>{{ profile.user.first_name }} {{ profile.user.last_name }}</div>
+
+        <div><strong>Major</strong></div>
+        <div>{{ profile.major|default:"—" }}</div>
+
+        <div><strong>Student ID</strong></div>
+        <div>{{ profile.student_id|default:"—" }}</div>
+      </div>
+
+      <div style="display:flex; align-items:center; gap:1rem;">
+        {% if profile.profile_picture %}
+          <img class="profile-avatar" src="{{ profile.profile_picture.url }}" alt="{{ profile.user.get_full_name }} avatar">
+        {% else %}
+          <img class="profile-avatar" src="{% static 'images/default-avatar.png' %}" alt="Default avatar">
+        {% endif %}
+        <a href="{% url 'profile_edit' %}" class="btn btn-primary">Edit Profile</a>
+      </div>
+    </div>
+  </section>
+
+  {# -------- Quick action buttons -------- #}
+  <section class="page-frame" aria-label="Quick actions">
+    <div class="action-row support-actions">
+      <a class="btn btn-light" href="{% url 'my_groups' %}">My Groups</a>
+      <a class="btn btn-light" href="{% url 'my_courses' %}">My Courses</a>
+      <a class="btn btn-light" href="{% url 'activity' %}">Activity</a>
+      <a class="btn btn-light" href="{% url 'profile_settings' %}">Settings</a>
+    </div>
+  </section>
+
+  {# -------- Stats grid -------- #}
+  <section class="page-frame" aria-labelledby="statsHeading">
+    <h2 id="statsHeading" class="visually-hidden">Profile Statistics</h2>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <strong>Number of Questions Asked</strong>
+        <div style="margin-top:.5rem;">{{ stats.questions_count|default:0 }}</div>
+      </div>
+
+      <div class="stat-card">
+        <strong>Number of Study Groups</strong>
+        <div style="margin-top:.5rem;">{{ stats.study_groups_count|default:0 }}</div>
+      </div>
+
+      <div class="stat-card">
+        <strong>Number of Courses Enrolled</strong>
+        <div style="margin-top:.5rem;">{{ stats.courses_count|default:0 }}</div>
+      </div>
+
+      <div class="stat-card">
+        <strong>Number of Materials Shared</strong>
+        <div style="margin-top:.5rem;">{{ stats.materials_shared_count|default:0 }}</div>
+      </div>
+    </div>
+  </section>
+
+  {# -------- Bio block (optional) -------- #}
+  <section class="page-frame" aria-labelledby="bioHeading">
+    <h3 id="bioHeading" class="section-title">Bio</h3>
+    <p class="paragraph">{{ profile.bio|default:"No bio yet." }}</p>
+  </section>
+
+</main>
 {% endblock %}

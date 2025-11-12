@@ -1,0 +1,36 @@
+{# KUGuide/templates/profile_edit.html #}
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Edit Profile{% endblock %}
+
+{% block content %}
+<main class="layout-container" tabindex="-1">
+  <section class="page-frame">
+    <h2 class="section-title">Edit Profile</h2>
+
+    <form method="post" enctype="multipart/form-data" class="auth-form" novalidate>
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="{{ form.major.id_for_label }}">Major</label>
+        {{ form.major }}
+        {% if form.major.errors %}<div class="text-danger">{{ form.major.errors }}</div>{% endif %}
+      </div>
+
+      <div class="form-group">
+        <label for="{{ form.bio.id_for_label }}">Bio</label>
+        {{ form.bio }}
+        {% if form.bio.errors %}<div class="text-danger">{{ form.bio.errors }}</div>{% endif %}
+      </div>
+
+      <div class="form-group">
+        <label for="{{ form.profile_picture.id_for_label }}">Profile picture</label>
+        {{ form.profile_picture }}
+        {% if form.profile_picture.errors %}<div class="text-danger">{{ form.profile_picture.errors }}</div>{% endif %}
+      </div>
+
+      <button type="submit" class="btn btn-primary">Save</button>
+      <a href="{% url 'profile' %}" class="btn btn-light" style="margin-top:.75rem;">Cancel</a>
+    </form>
+  </section>
+</main>
+{% endblock %}
