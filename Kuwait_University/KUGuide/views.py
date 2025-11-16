@@ -8,26 +8,60 @@ from django.shortcuts import render, redirect
 from .models import Profile  # only models you actually use here
 from .forms import ProfileForm, SignInForm  # <-- import forms from .forms
 
+
+def _infer_university_id(user):
+    """Try to determine a stable identifier for a user."""
+
+    if user.username:
+        return user.username
+
+    email_local_part = (user.email or "").split("@")[0]
+    if email_local_part:
+        return email_local_part
+
+    return f"user-{user.pk or 'unknown'}"
+
+
+def _get_or_create_profile(user):
+    """Return a profile for ``user`` ensuring ``university_id`` is present."""
+
+    profile, _ = Profile.objects.get_or_create(
+        user=user,
+        defaults={
+            "university_id": _infer_university_id(user),
+            "major": "",
+            "bio": "",
+        },
+    )
+
+    if not profile.university_id:
+        profile.university_id = _infer_university_id(user)
+        profile.save(update_fields=["university_id"])
+
+    return profile
+
+
 def index_view(request):
     return render(request, "index.html")
+
 
 def faq_view(request):
     return render(request, "faq.html")
 
+
 def career_view(request):
     return render(request, "career.html")
 
+
 @login_required
 def profile_view(request):
-    profile, _ = Profile.objects.get_or_create(
-        user=request.user,
-        defaults={"major": "", "bio": ""},
-    )
+    profile = _get_or_create_profile(request.user)
     return render(request, "profile.html", {"profile": profile})
+
 
 @login_required
 def profile_edit_view(request):
-    profile = request.user.profile
+    profile = _get_or_create_profile(request.user)
     if request.method == "POST":
         form = ProfileForm(request.POST, request.FILES, instance=profile)
         if form.is_valid():
@@ -38,24 +72,30 @@ def profile_edit_view(request):
         form = ProfileForm(instance=profile)
     return render(request, "profile_edit.html", {"form": form})
 
+
 @login_required
 def profile_settings_view(request):
     return render(request, "profile_settings.html")
+
 
 @login_required
 def my_groups_view(request):
     return render(request, "groups.html")
 
+
 @login_required
 def my_courses_view(request):
     return render(request, "courses.html")
+
 
 @login_required
 def activity_view(request):
     return render(request, "activity.html")
 
+
 def contact_view(request):
     return render(request, "contact.html")
+
 
 def signin_view(request):
     """
@@ -88,7 +128,7 @@ def signin_view(request):
                     return redirect(next_url)
                 else:
                     messages.error(request, "Invalid password.")
-            except Exception as e:
+            except Exception:
                 messages.error(request, "An error occurred during sign in. Please try again.")
     else:
         form = SignInForm()
