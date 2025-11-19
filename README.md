@@ -18,10 +18,12 @@ KUGuide is designed to reduce common KU student struggles by:
 ## 👥 Target Users
 
 - **Fresh Students**
+
   - Need basic guidance about systems, dates, and study resources.
   - Can access and share notes, books, and study materials.
 
 - **Students by Major**
+
   - Need career-oriented help more than basic academic help.
   - Can explore **certifications and skills** related to their major that are required in the job market.
 
@@ -33,35 +35,39 @@ KUGuide is designed to reduce common KU student struggles by:
 ## 🧩 Main Features
 
 - **Frequently Asked Questions (FAQ)**
+
   - Organized by categories such as:
-    - General Questions  
-    - Career Guidance  
-    - Account Help  
-    - Details  
-    - Technical Help  
+    - General Questions
+    - Career Guidance
+    - Account Help
+    - Details
+    - Technical Help
   - If the FAQ doesn’t answer it, the user can pass the question to the **AI chatbot**.
 
 - **AI Chatbot**
+
   - Uses an AI language model to answer questions instantly.
   - Supports **voice commands** to help users with disabilities.
   - Handles common admin/academic questions (e.g., withdrawal dates, system opening/closing, registration periods).
 
 - **Career Guidance**
+
   - Shows **required skills** for different roles (e.g., Web Designer → HTML, CSS, Java, UI/UX principles).
   - Lists **certifications required in the market** per major.
   - Highlights **internship and training opportunities** via OSTA.
 
 - **User Accounts & Profiles**
+
   - Users register with **name, university ID, and KU email**.
   - After login, users can:
-    - Access chat rooms and resources  
-    - Explore careers  
-    - Upload/update profile picture  
+    - Access chat rooms and resources
+    - Explore careers
+    - Upload/update profile picture
   - Major can be inferred from the **university ID** format.
 
 - **Responsive Design**
   - Layout adapts to **desktop, tablet, and mobile**.
-  - On desktop: full navbar always visible.  
+  - On desktop: full navbar always visible.
   - On mobile: **hamburger menu** for navigation.
   - Same color scheme and font across all pages for consistency.
 
@@ -99,6 +105,7 @@ KUGuide is designed to reduce common KU student struggles by:
 High-level structure:
 
 - **Home Page**
+
   - Navigation bar.
   - Login / Signup.
   - Website introduction.
@@ -107,26 +114,31 @@ High-level structure:
   - **Navigation:** one-click access to all main pages.
 
 - **FAQ Page**
+
   - Hub of common questions, grouped by topic (e.g., “Portal”).
   - **Navigation:** filter and search by subject.
   - Supports escalation to AI chatbot.
 
 - **User Profile Page**
+
   - View: Name, ID, Major, Picture.
   - Edit: Bio, Picture.
   - Access saved resources.
   - **Navigation:** appears as a dropdown after user login.
 
 - **Career Guidance Page**
+
   - Certifications & required skills for all **CBA majors**.
   - Internship and training opportunities.
   - **Navigation:** always available via navbar link.
 
 - **Contact Page**
+
   - For feedback, technical support, and general inquiries.
   - **Navigation:** accessible from both footer and navbar.
 
 - **Sign-In Page**
+
   - Login with **KU email + password**.
   - “Forgot Password” option.
   - **Flow:**
@@ -147,16 +159,19 @@ High-level structure:
 Wireframes were prototyped using **Figma** and **Excalidraw** and include:
 
 - **Home Page**
+
   - Navbar on top.
   - Greeting + website introduction.
   - Announcements scrollbar.
   - Quick access section acting as a “map” of key features.
 
 - **FAQ Page**
+
   - List of FAQs under 5 main categories.
   - Integrated chatbot area where users can type questions.
 
 - **Career Page**
+
   - Two main sections:
     - Skills required for **fresh KU students** (Word, PowerPoint, Excel, Teams).
     - Certifications required in the market per **CBA major**.
@@ -206,16 +221,16 @@ Planned interactivity includes:
 
 ## 📚 Reference
 
-- Connolly, R., & Hoar, R. (2021). *Fundamentals of Web Development* (3rd ed.). Pearson Education.
+- Connolly, R., & Hoar, R. (2021). _Fundamentals of Web Development_ (3rd ed.). Pearson Education.
 
 ---
 
 ## 👨‍💻 Team
 
-- **Abdulrahman Mahmoud** – Target Users, Website Architecture & Navigation Flow  
-- **Abdullah Bukoubar** – Website Structure  
-- **Abdullah Alrashidi** – Interactivity & User Input Handling  
-- **Yousef Alfarhan** – Main Features, Responsive Design & Layout Planning  
-- **Aisha Alsubaie** – Concept / Problem, Technology Stack & Framework Specification  
+- **Abdulrahman Mahmoud** – Target Users, Website Architecture & Navigation Flow
+- **Abdullah Bukoubar** – Website Structure
+- **Abdullah Alrashidi** – Interactivity & User Input Handling
+- **Yousef Alfarhan** – Main Features, Responsive Design & Layout Planning
+- **Aisha Alsubaie** – Concept / Problem, Technology Stack & Framework Specification
 
 Section: **01A** – College of Business Administration, Department of ISOM.

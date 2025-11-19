@@ -21,7 +21,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-@$rq=l9ht()dap)@p@a@c_9kl^6u9q)4a#%1^=jiy_*gxe$)&%'
+# Read from environment for production, with a clearly unsafe dev fallback.
+SECRET_KEY = os.getenv('SECRET_KEY', 'unsafe-dev-key-change-in-production')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -146,5 +147,8 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE = True  # Session expires when browser closes un
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Send emails to the terminal for development
-EMAIL_BACKEND = os.getenv('EMAIL_BACKEND', "django.core.mail.backends.console.EmailBackend")
+# Email backend: console in DEBUG by default, SMTP in production unless overridden by env
+EMAIL_BACKEND = os.getenv(
+    'EMAIL_BACKEND',
+    "django.core.mail.backends.console.EmailBackend" if DEBUG else "django.core.mail.backends.smtp.EmailBackend",
+)

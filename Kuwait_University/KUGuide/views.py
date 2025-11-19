@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 
-from .models import Profile  # only models you actually use here
+from .models import Profile, ContactMessage  # only models you actually use here
 from .forms import ProfileForm, SignInForm  # <-- import forms from .forms
 
 
@@ -94,6 +94,26 @@ def activity_view(request):
 
 
 def contact_view(request):
+    if request.method == "POST":
+        name = request.POST.get("name", "").strip()
+        email = request.POST.get("email", "").strip()
+        message = request.POST.get("message", "").strip()
+
+        if name and email and message:
+            try:
+                ContactMessage.objects.create(
+                    user=request.user if request.user.is_authenticated else None,
+                    name=name,
+                    email=email,
+                    message=message,
+                )
+                messages.success(request, "Thanks! Your message has been sent.")
+                return redirect("contact")
+            except Exception:
+                messages.error(request, "Could not save your message. Please try again later.")
+        else:
+            messages.error(request, "Please fill out all fields.")
+
     return render(request, "contact.html")
 
 

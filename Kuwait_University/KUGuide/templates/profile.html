@@ -19,14 +19,14 @@
         <div>{{ profile.major|default:"—" }}</div>
 
         <div><strong>Student ID</strong></div>
-        <div>{{ profile.student_id|default:"—" }}</div>
+        <div>{{ profile.university_id|default:"—" }}</div>
       </div>
 
       <div style="display:flex; align-items:center; gap:1rem;">
         {% if profile.profile_picture %}
           <img class="profile-avatar" src="{{ profile.profile_picture.url }}" alt="{{ profile.user.get_full_name }} avatar">
         {% else %}
-          <img class="profile-avatar" src="{% static 'images/default-avatar.png' %}" alt="Default avatar">
+          <img class="profile-avatar" src="{% static 'images/section1-img/kuwait-university-logo.webp' %}" alt="Default avatar">
         {% endif %}
         <a href="{% url 'profile_edit' %}" class="btn btn-primary">Edit Profile</a>
       </div>

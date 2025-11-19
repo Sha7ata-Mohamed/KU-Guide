@@ -1,15 +1,19 @@
 {% extends "admin/base_site.html" %}
 {% block title %}KUGuide Dashboard{% endblock %}
 {% block content %}
-<div style="padding: 30px;">
-    <h1 style="color: #0D4988;">Kuwait University Guide Dashboard</h1>
-    <hr>
+<div class="container py-4">
+    <h1 class="text-primary">Kuwait University Guide Dashboard</h1>
+    <hr class="mb-4">
 
-    <div style="display: flex; flex-wrap: wrap; gap: 20px; margin-top: 20px;">
+    <div class="row mt-3">
         {% for key, value in stats.items %}
-        <div style="flex: 1 1 250px; background: #f8f9fa; border: 1px solid #ddd; border-radius: 12px; padding: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
-            <h2 style="color: #0D4988;">{{ key|title }}</h2>
-            <p style="font-size: 1.5rem; font-weight: bold;">{{ value }}</p>
+        <div class="col-sm-6 col-md-4 mb-3">
+            <div class="card shadow-sm h-100">
+                <div class="card-body text-center">
+                    <h2 class="h5 text-primary">{{ key|title }}</h2>
+                    <p class="display-4 mb-0">{{ value }}</p>
+                </div>
+            </div>
         </div>
         {% endfor %}
     </div>
