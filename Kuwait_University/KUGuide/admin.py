@@ -7,7 +7,7 @@ from .models import (
     Major,
     Certification,
     ChatbotQuery,
-    ContactMessage
+    ContactMessage,
 )
 
 # Use the custom admin site everywhere
@@ -25,6 +25,7 @@ class ProfileAdmin(admin.ModelAdmin):
 
     def user_last_login(self, obj):
         return obj.user.last_login
+
     user_last_login.short_description = "Last login"
     user_last_login.admin_order_field = "user__last_login"
 
@@ -36,11 +37,13 @@ class FAQInline(admin.TabularInline):
     model = FAQ
     extra = 1
 
+
 class FAQCategoryAdmin(admin.ModelAdmin):
     list_display = ("name", "description")
     inlines = [FAQInline]
     search_fields = ("name",)
     ordering = ("name",)
+
 
 class FAQAdmin(admin.ModelAdmin):
     list_display = ("question", "category", "created_at")
@@ -56,11 +59,13 @@ class CertificationInline(admin.TabularInline):
     model = Certification
     extra = 1
 
+
 class MajorAdmin(admin.ModelAdmin):
     list_display = ("name", "description")
     search_fields = ("name",)
     inlines = [CertificationInline]
     ordering = ("name",)
+
 
 class CertificationAdmin(admin.ModelAdmin):
     list_display = ("name", "major", "provider")

@@ -3,7 +3,15 @@ from django.contrib import admin
 from django.urls import path
 from django.shortcuts import render
 from django.contrib.auth.models import User
-from .models import Profile, FAQ, FAQCategory, Major, Certification, ChatbotQuery, ContactMessage
+from .models import (
+    Profile,
+    FAQ,
+    FAQCategory,
+    Major,
+    Certification,
+    ChatbotQuery,
+    ContactMessage,
+)
 
 
 class KUGuideAdminSite(admin.AdminSite):

@@ -53,10 +53,17 @@ def career_view(request):
     return render(request, "career.html")
 
 
-@login_required
 def profile_view(request):
-    profile = _get_or_create_profile(request.user)
-    return render(request, "profile.html", {"profile": profile})
+    profile = None
+    stats = {
+        "questions": 0,
+        "groups": 0,
+        "courses": 0,
+        "materials": 0,
+    }
+    if request.user.is_authenticated:
+        profile = _get_or_create_profile(request.user)
+    return render(request, "profile.html", {"profile": profile, "stats": stats})
 
 
 @login_required
@@ -73,22 +80,18 @@ def profile_edit_view(request):
     return render(request, "profile_edit.html", {"form": form})
 
 
-@login_required
 def profile_settings_view(request):
     return render(request, "profile_settings.html")
 
 
-@login_required
 def my_groups_view(request):
     return render(request, "groups.html")
 
 
-@login_required
 def my_courses_view(request):
     return render(request, "courses.html")
 
 
-@login_required
 def activity_view(request):
     return render(request, "activity.html")
 
@@ -110,7 +113,9 @@ def contact_view(request):
                 messages.success(request, "Thanks! Your message has been sent.")
                 return redirect("contact")
             except Exception:
-                messages.error(request, "Could not save your message. Please try again later.")
+                messages.error(
+                    request, "Could not save your message. Please try again later."
+                )
         else:
             messages.error(request, "Please fill out all fields.")
 
@@ -136,20 +141,24 @@ def signin_view(request):
                     return render(request, "signin.html", {"form": form})
 
                 # Authenticate user
-                auth_user = authenticate(request, username=user.username, password=password)
+                auth_user = authenticate(
+                    request, username=user.username, password=password
+                )
                 if auth_user:
-                    if form.cleaned_data.get('remember_me'):
+                    if form.cleaned_data.get("remember_me"):
                         request.session.set_expiry(1209600)  # 2 weeks
                     else:
                         request.session.set_expiry(0)  # Until browser closes
                     login(request, auth_user)
                     messages.success(request, "Welcome back!")
-                    next_url = request.GET.get('next', 'index')
+                    next_url = request.GET.get("next", "index")
                     return redirect(next_url)
                 else:
                     messages.error(request, "Invalid password.")
             except Exception:
-                messages.error(request, "An error occurred during sign in. Please try again.")
+                messages.error(
+                    request, "An error occurred during sign in. Please try again."
+                )
     else:
         form = SignInForm()
 

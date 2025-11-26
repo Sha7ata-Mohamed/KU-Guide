@@ -94,4 +94,72 @@
         </div>
     </div>
 </section>
+
+<!-- Chat mockup under FAQ -->
+<section class="faq-chat" aria-label="FAQ chat mockup">
+    <div class="chat-card">
+        <header class="chat-header">
+            <div class="chat-avatar">Profile<br>Picture</div>
+            <div class="chat-name">*Name*</div>
+            <div class="chat-actions">
+                <span class="chat-icon" aria-hidden="true"></span>
+                <span class="chat-menu" aria-hidden="true"></span>
+            </div>
+        </header>
+
+        <div class="chat-body" aria-label="Chat messages area"></div>
+
+        <footer class="chat-input-row">
+            <input type="file" id="chat-file" class="chat-file-input" aria-label="Add attachment">
+            <button class="chat-add" type="button" aria-label="Add picture" id="chat-add-btn">+</button>
+            <label class="chat-dropzone" for="chat-file">
+                <span class="sr-only">Message</span>
+                <textarea id="chat-message" placeholder="Message" aria-label="Message" data-dropzone="true"></textarea>
+            </label>
+            <button class="chat-send" type="button" aria-label="Send message">Send</button>
+        </footer>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    (function () {
+        const fileInput = document.getElementById('chat-file');
+        const addBtn = document.getElementById('chat-add-btn');
+        const messageBox = document.getElementById('chat-message');
+
+        if (addBtn && fileInput) {
+            addBtn.addEventListener('click', () => fileInput.click());
+        }
+
+        const dropTargets = [messageBox];
+
+        dropTargets.forEach((target) => {
+            if (!target) return;
+
+            const prevent = (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+            };
+
+            target.addEventListener('dragenter', (e) => {
+                prevent(e);
+                target.classList.add('is-dragover');
+            });
+            target.addEventListener('dragover', prevent);
+            target.addEventListener('dragleave', () => target.classList.remove('is-dragover'));
+            target.addEventListener('drop', (e) => {
+                prevent(e);
+                target.classList.remove('is-dragover');
+                if (e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files.length) {
+                    fileInput.files = e.dataTransfer.files;
+                }
+                if (e.dataTransfer && e.dataTransfer.getData('text')) {
+                    target.value += (target.value ? '\n' : '') + e.dataTransfer.getData('text');
+                }
+            });
+        });
+    })();
+</script>
 {% endblock %}

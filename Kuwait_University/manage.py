@@ -6,7 +6,7 @@ import sys
 
 def main():
     """Run administrative tasks."""
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Kuwait_University.settings')
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "Kuwait_University.settings")
 
     # Allow overriding the default dev port via env var without affecting others.
     # If DJANGO_RUNSERVER_PORT is set and no addr:port was provided, append it.
@@ -27,5 +27,5 @@ def main():
     execute_from_command_line(sys.argv)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

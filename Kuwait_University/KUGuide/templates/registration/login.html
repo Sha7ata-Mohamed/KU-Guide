@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% block title %}Sign In{% endblock %}
+
+{% block content %}
+<main id="main-content" tabindex="-1">
+  <div class="layout-container auth-layout">
+    <section class="content-card auth-card" aria-labelledby="login-heading">
+      <h1 id="login-heading">Sign in to KUGuide</h1>
+      <p>Use your KU email and password to continue.</p>
+
+      <form class="auth-form" method="post" action="{% url 'login' %}" aria-describedby="login-support">
+        {% csrf_token %}
+
+        {% if form.non_field_errors %}
+        <div class="text-danger mb-2">{{ form.non_field_errors }}</div>
+        {% endif %}
+
+        <div class="form-group">
+          <label for="{{ form.username.id_for_label }}">University Email</label>
+          {{ form.username }}
+          {% if form.username.errors %}
+          <div class="text-danger">{{ form.username.errors }}</div>
+          {% endif %}
+          <small class="form-text text-muted">
+            Must end with <code>@ku.edu.kw</code>.
+          </small>
+        </div>
+
+        <div class="form-group">
+          <label for="{{ form.password.id_for_label }}">Password</label>
+          {{ form.password }}
+          {% if form.password.errors %}
+          <div class="text-danger">{{ form.password.errors }}</div>
+          {% endif %}
+        </div>
+
+        {% if form.remember_me %}
+        <div class="form-utilities d-flex justify-content-between align-items-center mb-3">
+          <div class="custom-control custom-checkbox">
+            {{ form.remember_me }}
+            <label class="custom-control-label" for="{{ form.remember_me.id_for_label }}">Remember me</label>
+          </div>
+          <a href="{% url 'password_reset' %}">Forgot password?</a>
+        </div>
+        {% else %}
+        <div class="d-flex justify-content-end mb-3">
+          <a href="{% url 'password_reset' %}">Forgot password?</a>
+        </div>
+        {% endif %}
+
+        {% if next %}
+        <input type="hidden" name="next" value="{{ next }}">
+        {% endif %}
+
+        <button type="submit" class="btn btn-light">Continue</button>
+      </form>
+    </section>
+
+    <aside class="auth-support" aria-labelledby="login-support">
+      <section class="content-card support-card">
+        <h2 id="login-support">Need help signing in?</h2>
+        <p>We can reset your password or help you regain access to your account.</p>
+        <div class="support-actions">
+          <a class="btn btn-primary" href="mailto:support@kuguide.edu.kw">Email support</a>
+          <a class="btn btn-light" href="tel:+96550050505">Call +965 5005 0505</a>
+        </div>
+      </section>
+    </aside>
+  </div>
+</main>
+{% endblock %}
