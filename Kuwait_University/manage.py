@@ -7,6 +7,15 @@ import sys
 def main():
     """Run administrative tasks."""
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Kuwait_University.settings')
+
+    # Allow overriding the default dev port via env var without affecting others.
+    # If DJANGO_RUNSERVER_PORT is set and no addr:port was provided, append it.
+    if len(sys.argv) >= 2 and sys.argv[1] == "runserver":
+        has_addr_port_arg = any(not arg.startswith("-") for arg in sys.argv[2:])
+        env_port = os.getenv("DJANGO_RUNSERVER_PORT")
+        if env_port and not has_addr_port_arg:
+            sys.argv.append(env_port)
+
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:

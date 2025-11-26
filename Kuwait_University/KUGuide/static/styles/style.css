@@ -13,12 +13,10 @@
 
 /* Page background, typography, and top offset for fixed navbar */
 body {
-  flex-wrap: wrap;
-  /* harmless on body (no display:flex); kept to avoid changing layout assumptions */
   margin: 0;
   padding-top: 100px;
-  color: var(--text-dark);
   font-family: "Segoe UI", Arial, sans-serif;
+  color: var(--text-dark);
   background: linear-gradient(180deg,
       rgba(17, 75, 136, 0.06) 0%,
       rgba(248, 249, 250, 1) 35%,
@@ -34,11 +32,11 @@ body {
   display: block;
   width: 100%;
   padding: 12px 14px;
-  background: rgba(17, 75, 136, 0.06);
-  color: #0d4988;
   font-weight: 600;
   line-height: 1.35;
   text-align: center;
+  color: var(--primary);
+  background: rgba(17, 75, 136, 0.06);
   border-radius: 12px;
   /* keeps the rounded look in cards */
   word-break: break-word;
@@ -78,18 +76,17 @@ main:focus {
    ========================================= */
 
 .custom-navbar {
-  flex-wrap: nowrap;
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  background-color: #ffffff;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 5px 30px;
-  box-shadow: 0 2px 8px rgba(120, 119, 119, 0.1);
   z-index: 1000;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 30px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(120, 119, 119, 0.1);
   transition: top 0.4s ease;
 }
 
@@ -101,43 +98,43 @@ main:focus {
 /* Brand lockup (logo + wordmark) */
 .navbar-brand {
   display: flex;
-  align-items: center;
   gap: 10px;
+  align-items: center;
   text-decoration: none;
 }
 
 /* Logo animation for a subtle bounce */
 .navbar-brand img {
-  height: 80px;
   width: auto;
+  height: 80px;
   animation: bounce 3.5s infinite ease-in-out;
 }
 
 /* Brand text style */
 .navbar-p {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
   font-size: 1.8rem;
   font-weight: 700;
   color: var(--primary);
-  margin: 0;
-  font-family: "Segoe UI", Arial, sans-serif;
 }
 
 /* Right-aligned nav group */
 .nav.justify-content-end {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-end;
-  align-items: center;
   gap: 10px;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 /* Active nav link appearance */
 .nav-link.active {
-  color: var(--primary);
-  border-radius: 4px;
   padding: 5px 10px;
-  text-decoration: none;
   font-weight: 600;
+  color: var(--primary);
+  text-decoration: none;
+  border-radius: 4px;
 }
 
 /* Active link hover underline */
@@ -164,30 +161,32 @@ main:focus {
    ========================================= */
 
 .hero {
-  text-align: center;
   padding: 4rem 1.5rem;
-  border-radius: 18px;
+  margin-top: 1.5rem;
+  text-align: center;
   background-color: rgba(248, 249, 250, 0.85);
+  border-radius: 18px;
   box-shadow: 0 15px 45px rgba(17, 75, 136, 0.18);
+  -webkit-backdrop-filter: blur(2px);
   backdrop-filter: blur(2px);
 }
 
 .hero h1 {
-  font-size: clamp(2.5rem, 5vw, 3.5rem);
   margin-bottom: 1rem;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
   color: var(--text-dark);
 }
 
 .hero p {
-  font-size: 1.15rem;
-  margin: 0 auto 2rem;
   max-width: 720px;
+  margin: 0 auto 2rem;
+  font-size: 1.15rem;
 }
 
 .hero-actions {
   display: flex;
-  justify-content: center;
   gap: 1rem;
+  justify-content: center;
 }
 
 /* =========================================
@@ -195,12 +194,12 @@ main:focus {
    ========================================= */
 
 .page-frame {
+  max-width: 900px;
+  margin: 24px auto;
+  padding: 24px;
   background: #ffffff;
   border: 2px solid var(--text-on-primary);
   border-radius: 24px;
-  padding: 24px;
-  max-width: 900px;
-  margin: 24px auto;
 }
 
 /* =========================================
@@ -208,13 +207,13 @@ main:focus {
    ========================================= */
 
 .section-title {
-  text-align: center;
   margin-bottom: 2rem;
+  text-align: center;
 }
 
 .section-title a {
-  margin-top: 1.2rem;
   display: inline-block;
+  margin-top: 1.2rem;
 }
 
 .section-title h1 {
@@ -231,10 +230,10 @@ main:focus {
 }
 
 .section-title p {
+  margin-top: 0.5rem;
   font-size: 1.6rem;
   font-weight: 500;
-  color: rgb(13, 73, 136);
-  margin-top: 0.5rem;
+  color: var(--text-dark);
 }
 
 /* =========================================
@@ -243,33 +242,33 @@ main:focus {
 
 .feature-grid {
   display: grid;
-  gap: 1.5rem;
-  padding: 2rem 0;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
   align-items: stretch;
+  padding: 2rem 0;
 }
 
 /* Content card base (used widely) */
 .content-card {
+  margin-top: 5rem;
+  margin-bottom: 2.5rem;
+  padding: 2.5rem 2rem;
   background-color: var(--surface);
   border-radius: 20px;
-  padding: 2.5rem 2rem;
   box-shadow: none;
   /* FIX: was 'rgb(11, 77, 138)' (invalid), which rendered as no shadow; keep visual unchanged */
-  margin-bottom: 2.5rem;
-  margin-top: 5rem;
 }
 
 .content-card h1,
 .content-card h2,
 .content-card h3 {
-  color: var(--text-dark);
   font-weight: 500;
+  color: var(--text-dark);
 }
 
 .content-card p {
-  color: rgb(13, 73, 136);
   line-height: 1.65;
+  color: var(--text-dark);
 }
 
 /* Individual feature card */
@@ -278,12 +277,12 @@ main:focus {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 24px 20px;
+  background: var(--surface);
   border: 1px solid rgba(17, 75, 136, 0.18);
   border-radius: 16px;
-  padding: 24px 20px;
   box-shadow: 0 12px 35px rgba(17, 75, 136, 0.18);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  background: var(--surface);
 }
 
 .card:hover {
@@ -297,8 +296,8 @@ main:focus {
 .card-img-top-career {
   width: 80px;
   height: 80px;
-  object-fit: contain;
   margin-bottom: 10px;
+  object-fit: contain;
   border-radius: 15px;
   box-shadow: 0 0 10px rgba(0, 0, 255, 0.3);
 }
@@ -319,85 +318,102 @@ main:focus {
 }
 
 .card p {
-  font-size: 0.95rem;
-  color: black;
-  font-weight: 500;
   margin: 0;
+  font-size: 0.95rem;
+  font-weight: 500;
   text-align: center;
+  color: #000000;
 }
 
 /* =========================================
-   FAQ polish on HOME page (scoped)
+   FAQ Section (Shared Styles)
    ========================================= */
 
-.page-home .faq-section {
+.page-home .faq-section,
+.page-faq .faq-section {
+  max-width: 980px;
+  margin: 5rem auto 2.5rem;
+  padding: 2.5rem 2rem;
   background: radial-gradient(1200px 400px at 80% -100%,
       rgba(17, 75, 136, 0.06),
       transparent 60%),
     var(--surface);
   border-radius: 20px;
-  padding: 2.5rem 2rem;
   box-shadow: 0 12px 35px rgba(17, 75, 136, 0.18);
-  margin: 5rem auto 2.5rem;
-  max-width: 980px;
 }
 
-/* Title hierarchy on home */
-.page-home .faq-section .section-title h1 {
+.page-home .faq-section .section-title h1,
+.page-faq .faq-section .section-title h1 {
+  margin-bottom: 0.35rem;
   font-weight: 800;
   letter-spacing: 0.2px;
-  margin-bottom: 0.35rem;
 }
 
-/* Intro paragraph under section title */
-.page-home .faq-section .faq-intro {
+.page-home .faq-section .faq-intro,
+.page-faq .faq-section .faq-intro {
+  margin-bottom: 1.75rem;
   font-size: 1.1rem;
   color: rgba(13, 73, 136, 0.95);
-  margin-bottom: 1.75rem;
 }
 
-/* Collapsible detail blocks */
-.page-home .faq-section .faq-accordion details {
+.page-home .faq-accordion details,
+.page-faq .faq-accordion details {
+  margin: 1.1rem 0;
+  padding: 0.85rem 1rem 0.95rem;
   background: #fff;
   border: 1px solid rgba(17, 75, 136, 0.14);
   border-radius: 14px;
-  padding: 0.85rem 1rem 0.95rem;
-  margin: 1.1rem 0;
   box-shadow: 0 1px 0 rgba(17, 75, 136, 0.04);
   transition: box-shadow 0.25s ease, transform 0.2s ease,
     border-color 0.25s ease;
 }
 
-.page-home .faq-section .faq-accordion details[open] {
+.page-home .faq-accordion details[open],
+.page-faq .faq-accordion details[open] {
   transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(17, 75, 136, 0.12);
   border-color: rgba(17, 75, 136, 0.26);
+  box-shadow: 0 12px 28px rgba(17, 75, 136, 0.12);
 }
 
-/* Summary row with accent and chevron */
-.page-home .faq-section .faq-accordion summary {
-  padding: 0.65rem 0.5rem 0.65rem 1.75rem;
-  margin: 0.15rem 0 0.35rem;
+.page-home .faq-accordion summary,
+.page-faq .faq-accordion summary {
   position: relative;
+  display: block;
+  margin: 0.15rem 0 0.35rem;
+  padding: 0.65rem 0.5rem 0.65rem 1.75rem;
+  font-weight: 700;
+  color: var(--primary);
+  list-style: none;
+  background: transparent;
   border-radius: 10px;
-  cursor: pointer;
   outline: none;
+  cursor: pointer;
 }
 
-.page-home .faq-section .faq-accordion summary::before {
+.page-faq .faq-accordion summary::-webkit-details-marker {
+  display: none;
+}
+
+.page-faq .faq-accordion summary::marker {
+  content: "";
+}
+
+.page-home .faq-accordion summary::before,
+.page-faq .faq-accordion summary::before {
   content: "";
   position: absolute;
   left: 0.5rem;
   top: 50%;
-  transform: translateY(-50%);
   width: 6px;
   height: 22px;
-  border-radius: 4px;
   background: var(--primary);
+  border-radius: 4px;
+  transform: translateY(-50%);
   opacity: 0.28;
 }
 
-.page-home .faq-section .faq-accordion summary::after {
+.page-home .faq-accordion summary::after,
+.page-faq .faq-accordion summary::after {
   content: "";
   position: absolute;
   right: 0.25rem;
@@ -411,39 +427,119 @@ main:focus {
   opacity: 0.8;
 }
 
-.page-home .faq-section .faq-accordion details[open]>summary::after {
+.page-home .faq-accordion details[open]>summary::after,
+.page-faq .faq-accordion details[open]>summary::after {
   transform: translateY(-50%) rotate(-135deg);
 }
 
-.page-home .faq-section .faq-accordion summary:focus {
+.page-home .faq-accordion summary:focus,
+.page-faq .faq-accordion summary:focus {
   box-shadow: 0 0 0 4px rgba(17, 75, 136, 0.12);
 }
 
-/* Question text + list readability */
-.page-home .faq-section .faq-accordion h5 {
+.page-home .faq-accordion h5,
+.page-faq .faq-accordion h5 {
   margin: 0.75rem 0 0.4rem;
   font-size: 1.15rem;
   line-height: 1.35;
   color: var(--text-dark);
 }
 
-.page-home .faq-section .faq-accordion h5+ul {
-  border-left: 3px solid rgba(17, 75, 136, 0.15);
+.page-home .faq-accordion h5+ul,
+.page-faq .faq-accordion h5+ul {
   margin-left: 0.35rem;
-  padding-left: 1rem;
   margin-bottom: 0.85rem;
+  padding-left: 1rem;
+  border-left: 3px solid rgba(17, 75, 136, 0.15);
 }
 
-.page-home .faq-section .faq-accordion ul {
+.page-home .faq-accordion ul,
+.page-faq .faq-accordion ul {
   padding-left: 1.2rem;
 }
 
-.page-home .faq-section .faq-accordion li {
+.page-home .faq-accordion li,
+.page-faq .faq-accordion li {
   margin: 0.2rem 0 0.55rem;
   line-height: 1.65;
 }
 
-/* Link styling within FAQ answers (home + faq pages unified below) */
+/* =========================================
+   FAQ links (UNIFIED styles for home + faq)
+   ========================================= */
+
+.page-home .faq-section .faq-accordion a,
+.page-faq .faq-accordion a {
+  font-weight: 700;
+  /* bolder */
+  color: #0b3e73;
+  /* deeper blue for contrast */
+  text-decoration: underline;
+  /* always visible */
+  text-decoration-thickness: 0.12em;
+  text-underline-offset: 0.15em;
+  border-bottom: none !important;
+  /* override dashed underline */
+}
+
+/* Hover / focus intent */
+.page-home .faq-section .faq-accordion a:hover,
+.page-faq .faq-accordion a:hover {
+  color: #073058;
+  text-underline-offset: 0.22em;
+  background: rgba(17, 75, 136, 0.08);
+}
+
+.page-home .faq-section .faq-accordion a:focus,
+.page-faq .faq-accordion a:focus {
+  outline: 0;
+  border-radius: 6px;
+  box-shadow: 0 0 0 4px rgba(17, 75, 136, 0.18);
+}
+
+/* Visited state remains readable */
+.page-home .faq-section .faq-accordion a:visited,
+.page-faq .faq-accordion a:visited {
+  color: #073058;
+}
+
+/* Small external-link cue */
+.page-home .faq-section .faq-accordion a[target="_blank"]::after,
+.page-faq .faq-accordion a[target="_blank"]::after {
+  content: "↗";
+  margin-left: 0.25rem;
+  font-weight: 700;
+  opacity: 0.9;
+}
+
+/* =========================================
+   FAQ PAGE (scoped to .page-faq)
+   ========================================= */
+
+.page-faq .layout-container {
+  max-width: 980px;
+}
+
+/* Divider hairline in FAQ groups (FAQ page) */
+.page-faq .faq-section hr {
+  display: block;
+  height: 1px;
+  margin: 0.9rem 0 0;
+  border: 0;
+  background: linear-gradient(to right,
+      transparent,
+      rgba(17, 75, 136, 0.12) 20%,
+      rgba(17, 75, 136, 0.12) 80%,
+      transparent);
+}
+
+/* Optional white frame wrapper around FAQ groups */
+.page-faq .faq-frame {
+  padding: 24px;
+  background: #ffffff;
+  border: 2px solid var(--text-on-primary);
+  border-radius: 24px;
+}
 
 /* =========================================
    Quick links block (media style tiles)
@@ -453,16 +549,16 @@ main:focus {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1.5rem;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 1.5rem;
-  max-width: 1000px;
 }
 
 /* Generic label style for forms within sections */
 .form-group label {
-  font-weight: 600;
-  margin-bottom: 0.5rem;
   display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
   color: var(--primary);
 }
 
@@ -470,14 +566,14 @@ main:focus {
 .quick-links .media {
   display: flex;
   gap: 1.5rem;
+  height: 100%;
   align-items: center;
   justify-content: flex-start;
   padding: 1.5rem;
-  border-radius: 16px;
   background: rgba(17, 75, 136, 0.05);
+  border-radius: 16px;
   box-shadow: inset 0 0 0 1px rgba(17, 75, 136, 0.08);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  height: 100%;
 }
 
 .quick-links .media:hover {
@@ -507,21 +603,21 @@ main:focus {
    ========================================= */
 
 .badge-list {
-  list-style: none;
-  margin: 1.5rem 0;
-  padding: 0;
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
+  margin: 1.5rem 0;
+  padding: 0;
+  list-style: none;
 }
 
 .badge-list li {
-  background-color: rgba(17, 75, 136, 0.08);
-  color: var(--primary);
-  border-radius: 999px;
   padding: 0.5rem 1.25rem;
-  font-weight: 600;
   font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--primary);
+  background-color: rgba(17, 75, 136, 0.08);
+  border-radius: 999px;
 }
 
 /* =========================================
@@ -530,19 +626,19 @@ main:focus {
 
 .data-table {
   width: 100%;
-  border-collapse: collapse;
   margin-top: 1.5rem;
-  background-color: var(--surface);
-  border-radius: 16px;
   overflow: hidden;
+  background-color: var(--surface);
+  border-collapse: collapse;
+  border-radius: 16px;
   box-shadow: 0 6px 20px rgba(17, 75, 136, 0.08);
 }
 
 .data-table th,
 .data-table td {
   padding: 1rem 1.25rem;
-  border-bottom: 1px solid rgba(17, 75, 136, 0.1);
   text-align: left;
+  border-bottom: 1px solid rgba(17, 75, 136, 0.1);
 }
 
 .data-table th {
@@ -556,11 +652,11 @@ main:focus {
 }
 
 .data-table thead {
-  background-color: rgba(17, 75, 136, 0.08);
-  color: var(--primary);
+  font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  font-size: 0.85rem;
+  color: var(--primary);
+  background-color: rgba(17, 75, 136, 0.08);
 }
 
 .data-table tbody tr:last-child td {
@@ -570,40 +666,36 @@ main:focus {
 /* =========================================
    Typographic helpers and layout rows
    ========================================= */
+.header,
+.paragraph,
+.head,
+.section-2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
 
 .header {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  font-size: 50px;
   margin-top: 50px;
+  font-size: 50px;
 }
 
 .paragraph {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
   color: var(--text-dark);
   font-style: inherit;
 }
 
 .head {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
   margin-bottom: 2rem;
 }
 
 .section-2 {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-bottom: 2rem;
   margin-top: 3rem;
+  margin-bottom: 2rem;
 }
+
+
 
 /* =========================================
    Generic media row (separate from quick-links)
@@ -612,15 +704,15 @@ main:focus {
 .list-unstyled {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   background-color: #f8f9fa;
 }
 
 .media {
+  display: grid;
   flex-grow: 1;
   flex-basis: auto;
-  display: grid;
   justify-content: center;
 }
 
@@ -636,13 +728,11 @@ main:focus {
    ========================================= */
 
 #carouselId.carousel {
-  background: var(--surface-alt);
   max-width: 1000px;
-  margin-right: auto;
-  margin-left: auto;
-  border-radius: 10px;
+  margin: 50px auto 0;
   overflow: hidden;
-  margin-top: 50px;
+  background: var(--surface-alt);
+  border-radius: 10px;
 }
 
 #carouselId .carousel-item img {
@@ -687,9 +777,9 @@ main:focus {
 
 .btn.btn-primary {
   padding: 6px 15px;
-  border-radius: 6px;
   background-color: var(--primary);
   border-color: var(--primary);
+  border-radius: 6px;
 }
 
 .btn.btn-primary:hover,
@@ -700,10 +790,10 @@ main:focus {
 }
 
 .btn.btn-light {
-  background-color: var(--surface);
-  border-color: rgb(13, 73, 136);
-  color: var(--text-dark);
   font-weight: 600;
+  color: var(--text-dark);
+  background-color: var(--surface);
+  border-color: var(--text-dark);
 }
 
 .btn.btn-light:hover,
@@ -717,14 +807,14 @@ main:focus {
 
 .contact-card {
   position: relative;
+  z-index: 0;
   padding: 20px;
+  overflow: hidden;
+  text-align: center;
+  background: #ffffff;
   border: 1px solid #ccc;
   border-radius: 12px;
-  text-align: center;
-  overflow: hidden;
-  background: #ffffff;
   transition: transform 0.3s ease;
-  z-index: 0;
 }
 
 .contact-card * {
@@ -733,14 +823,14 @@ main:focus {
 }
 
 .contact-card a {
-  text-decoration: none;
-  color: var(--primary);
   font-weight: 600;
+  color: var(--primary);
+  text-decoration: none;
 }
 
 .contact-card i {
-  font-size: 32px;
   margin-bottom: 8px;
+  font-size: 32px;
   color: var(--primary);
 }
 
@@ -748,18 +838,22 @@ main:focus {
 .contact-card::before {
   content: "";
   position: absolute;
+  z-index: 1;
   inset: 0;
   background: var(--primary);
+  border-radius: inherit;
   opacity: 0;
   transform: scale(1.3);
   transition: opacity 0.4s ease, transform 0.4s ease;
-  border-radius: inherit;
-  z-index: 1;
 }
 
 .contact-card:hover::before {
-  opacity: 1;
   transform: scale(1);
+  opacity: 1;
+}
+
+.contact-card:hover {
+  transform: translateY(-5px);
 }
 
 .contact-card:hover i,
@@ -767,10 +861,6 @@ main:focus {
 .contact-card:hover h5,
 .contact-card:hover p {
   color: #ffffff;
-}
-
-.contact-card:hover {
-  transform: translateY(-5px);
 }
 
 /* Grid wrapper for contact items */
@@ -781,9 +871,9 @@ main:focus {
 }
 
 .contact-item {
+  padding: 1.75rem;
   background: rgba(17, 75, 136, 0.05);
   border-radius: 18px;
-  padding: 1.75rem;
   box-shadow: inset 0 0 0 1px rgba(17, 75, 136, 0.12);
 }
 
@@ -799,25 +889,25 @@ main:focus {
 
 .contact-form label {
   display: block;
-  font-weight: 600;
   margin-bottom: 0.35rem;
+  font-weight: 600;
 }
 
 .contact-form input,
 .contact-form textarea {
   width: 100%;
   padding: 0.75rem 1rem;
+  font-size: 1rem;
   border: 1px solid rgba(17, 75, 136, 0.2);
   border-radius: 10px;
-  font-size: 1rem;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .contact-form input:focus,
 .contact-form textarea:focus {
+  outline: none;
   border-color: var(--primary);
   box-shadow: 0 0 0 4px rgba(17, 75, 136, 0.1);
-  outline: none;
 }
 
 /* =========================================
@@ -840,14 +930,14 @@ main:focus {
 }
 
 .auth-card h1 {
-  font-size: clamp(2rem, 4vw, 2.75rem);
   margin-bottom: 0.5rem;
+  font-size: clamp(2rem, 4vw, 2.75rem);
 }
 
 .auth-card p {
   margin: 0;
-  color: rgba(17, 75, 136, 0.78);
   line-height: 1.7;
+  color: rgba(17, 75, 136, 0.78);
 }
 
 .auth-form {
@@ -857,69 +947,69 @@ main:focus {
 
 .auth-form label {
   display: block;
-  font-weight: 600;
   margin-bottom: 0.5rem;
+  font-weight: 600;
 }
 
 .auth-form input[type="email"],
 .auth-form input[type="password"] {
   width: 100%;
   padding: 0.85rem 1rem;
-  border-radius: 12px;
-  border: 1px solid rgba(17, 75, 136, 0.2);
-  transition: border-color 0.25s ease, box-shadow 0.25s ease;
   font-size: 1rem;
+  border: 1px solid rgba(17, 75, 136, 0.2);
+  border-radius: 12px;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .auth-form input[type="email"]:focus,
 .auth-form input[type="password"]:focus {
+  outline: none;
   border-color: var(--primary);
   box-shadow: 0 0 0 4px rgba(17, 75, 136, 0.12);
-  outline: none;
 }
 
 /* Primary submit button with slide-in accent */
 .auth-form .btn {
   position: relative;
-  font-weight: 600;
-  padding: 0.9rem 1rem;
-  border-radius: 12px;
+  z-index: 1;
   width: 100%;
-  box-shadow: 0 12px 24px rgba(0, 119, 247, 0.18);
+  padding: 0.9rem 1rem;
+  overflow: hidden;
+  font-weight: 600;
   color: #fff;
   background-color: #114b88;
   border: none;
-  overflow: hidden;
-  z-index: 1;
+  border-radius: 12px;
+  box-shadow: 0 12px 24px rgba(0, 119, 247, 0.18);
   transition: color 0.3s ease;
 }
 
 .auth-form .btn::before {
   content: "";
   position: absolute;
+  z-index: -1;
   inset: 0;
   background-color: #0077f7;
+  border-radius: inherit;
   transform: translateX(-100%);
   transition: transform 0.4s ease-in-out;
-  z-index: -1;
-  border-radius: inherit;
-}
-
-.auth-form .btn:hover::before {
-  transform: translateX(0);
 }
 
 .auth-form .btn:hover {
   color: #fff;
 }
 
+.auth-form .btn:hover::before {
+  transform: translateX(0);
+}
+
 /* Form utilities (remember me / forgot) */
 .form-utilities {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
   flex-wrap: wrap;
   gap: 0.75rem;
+  align-items: center;
+  justify-content: space-between;
   font-size: 0.95rem;
 }
 
@@ -935,8 +1025,8 @@ main:focus {
 
 /* Checkbox alignment tweaks (Bootstrap custom-control) */
 .custom-control.custom-checkbox {
-  padding-left: 2rem;
   min-height: auto;
+  padding-left: 2rem;
 }
 
 .custom-control-input:focus~.custom-control-label::before {
@@ -956,17 +1046,17 @@ main:focus {
 }
 
 .support-card ul {
-  padding-left: 1.2rem;
-  margin: 0;
   display: grid;
   gap: 0.75rem;
+  margin: 0;
+  padding-left: 1.2rem;
   list-style: disc;
   list-style-position: outside;
 }
 
 .support-card li {
-  color: rgba(17, 75, 136, 0.85);
   line-height: 1.6;
+  color: rgba(17, 75, 136, 0.85);
 }
 
 /* Action buttons row */
@@ -977,23 +1067,23 @@ main:focus {
 }
 
 .support-actions .btn {
-  width: 100%;
-  justify-content: center;
   position: relative;
-  transition: transform 0.3s ease;
+  width: 100%;
   overflow: hidden;
+  justify-content: center;
+  transition: transform 0.3s ease;
 }
 
 .support-actions .btn::before {
   content: "";
   position: absolute;
+  z-index: -1;
   inset: 0;
   background: var(--primary);
+  border-radius: inherit;
   opacity: 0;
   transform: scale(1.3);
   transition: opacity 0.4s ease, transform 0.4s ease;
-  border-radius: inherit;
-  z-index: -1;
 }
 
 .support-actions .btn:hover {
@@ -1001,8 +1091,8 @@ main:focus {
 }
 
 .support-actions .btn:hover::before {
-  opacity: 0.1;
   transform: scale(1);
+  opacity: 0.1;
 }
 
 /* =========================================
@@ -1010,10 +1100,10 @@ main:focus {
    ========================================= */
 
 footer {
-  text-align: center;
   padding: 15px;
-  background-color: var(--surface-alt);
+  text-align: center;
   color: var(--text-dark);
+  background-color: var(--surface-alt);
   border-top: 1px solid rgba(17, 75, 136, 0.1);
 }
 
@@ -1032,34 +1122,15 @@ footer {
   }
 }
 
-@media (max-width: 576px) {
-  .auth-form {
-    gap: 1rem;
-  }
-
-  .auth-form .btn {
-    box-shadow: 0 8px 16px rgba(220, 223, 225, 0.18);
-  }
-
-  .form-utilities {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .support-actions {
-    grid-template-columns: 1fr;
-  }
-}
-
 @media (max-width: 768px) {
   body {
     padding-top: 150px;
   }
 
   .custom-navbar {
-    padding: 10px 20px;
     flex-wrap: wrap;
     align-items: flex-start;
+    padding: 10px 20px;
   }
 
   .navbar-toggler {
@@ -1072,8 +1143,8 @@ footer {
   }
 
   .navbar-nav {
-    text-align: center;
     width: 100%;
+    text-align: center;
   }
 
   .navbar-nav .nav-link {
@@ -1082,9 +1153,9 @@ footer {
 
   .nav.justify-content-end {
     flex-direction: column;
-    align-items: center;
     gap: 0;
     width: 100%;
+    align-items: center;
   }
 
   .hero {
@@ -1111,21 +1182,21 @@ footer {
 
   .data-table tr {
     margin-bottom: 1.5rem;
-    box-shadow: 0 6px 20px rgba(17, 75, 136, 0.08);
-    border-radius: 16px;
     overflow: hidden;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(17, 75, 136, 0.08);
   }
 
   .data-table th[scope="row"] {
+    font-size: 0.95rem;
     background: rgba(17, 75, 136, 0.08);
     border-bottom: 1px solid rgba(17, 75, 136, 0.1);
-    font-size: 0.95rem;
   }
 
   .data-table td {
-    border-bottom: 1px solid rgba(17, 75, 136, 0.1);
     position: relative;
     padding-left: 45%;
+    border-bottom: 1px solid rgba(17, 75, 136, 0.1);
   }
 
   .data-table td::before {
@@ -1133,219 +1204,9 @@ footer {
     position: absolute;
     left: 1rem;
     top: 50%;
-    transform: translateY(-50%);
     font-weight: 600;
     color: var(--primary);
-  }
-}
-
-/* =========================================
-   FAQ PAGE (scoped to .page-faq)
-   ========================================= */
-
-.page-faq .layout-container {
-  max-width: 980px;
-}
-
-.page-faq .faq-section {
-  background: radial-gradient(1200px 400px at 80% -100%,
-      rgba(17, 75, 136, 0.06),
-      transparent 60%),
-    var(--surface);
-  border-radius: 20px;
-  padding: 2.5rem 2rem;
-  box-shadow: 0 12px 35px rgba(17, 75, 136, 0.18);
-  margin: 5rem auto 2.5rem;
-}
-
-/* FAQ title + intro hierarchy */
-.page-faq .faq-section .section-title h1 {
-  font-weight: 800;
-  letter-spacing: 0.2px;
-  margin-bottom: 0.35rem;
-}
-
-.page-faq .faq-section .faq-intro {
-  font-size: 1.1rem;
-  color: rgba(13, 73, 136, 0.95);
-  margin-bottom: 1.75rem;
-}
-
-/* Collapsible cards */
-.page-faq .faq-accordion details {
-  background: #fff;
-  border: 1px solid rgba(17, 75, 136, 0.14);
-  border-radius: 14px;
-  padding: 0.85rem 1rem 0.95rem;
-  margin: 1.1rem 0;
-  box-shadow: 0 1px 0 rgba(17, 75, 136, 0.04);
-  transition: box-shadow 0.25s ease, transform 0.2s ease,
-    border-color 0.25s ease;
-}
-
-.page-faq .faq-accordion details[open] {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(17, 75, 136, 0.12);
-  border-color: rgba(17, 75, 136, 0.26);
-}
-
-/* Summary row: remove default marker, add accent + chevron */
-.page-faq .faq-accordion summary {
-  list-style: none;
-  cursor: pointer;
-  font-weight: 700;
-  color: var(--primary);
-  display: block;
-  position: relative;
-  border-radius: 10px;
-  outline: none;
-  background: transparent;
-  padding: 0.65rem 0.5rem 0.65rem 1.75rem;
-  margin: 0.15rem 0 0.35rem;
-}
-
-.page-faq .faq-accordion summary::-webkit-details-marker {
-  display: none;
-}
-
-.page-faq .faq-accordion summary::marker {
-  content: "";
-}
-
-.page-faq .faq-accordion summary::before {
-  content: "";
-  position: absolute;
-  left: 0.5rem;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 6px;
-  height: 22px;
-  border-radius: 4px;
-  background: var(--primary);
-  opacity: 0.28;
-}
-
-.page-faq .faq-accordion summary::after {
-  content: "";
-  position: absolute;
-  right: 0.25rem;
-  top: 50%;
-  width: 10px;
-  height: 10px;
-  border-right: 2px solid var(--primary);
-  border-bottom: 2px solid var(--primary);
-  transform: translateY(-50%) rotate(45deg);
-  transition: transform 0.2s ease;
-  opacity: 0.8;
-}
-
-.page-faq .faq-accordion details[open]>summary::after {
-  transform: translateY(-50%) rotate(-135deg);
-}
-
-.page-faq .faq-accordion summary:focus {
-  box-shadow: 0 0 0 4px rgba(17, 75, 136, 0.12);
-}
-
-/* Question text + lists */
-.page-faq .faq-accordion h5 {
-  margin: 0.75rem 0 0.4rem;
-  font-size: 1.15rem;
-  line-height: 1.35;
-  color: var(--text-dark);
-}
-
-.page-faq .faq-accordion h5+ul {
-  border-left: 3px solid rgba(17, 75, 136, 0.15);
-  margin-left: 0.35rem;
-  padding-left: 1rem;
-  margin-bottom: 0.85rem;
-}
-
-.page-faq .faq-accordion ul {
-  padding-left: 1.2rem;
-}
-
-.page-faq .faq-accordion li {
-  margin: 0.2rem 0 0.55rem;
-  line-height: 1.65;
-}
-
-/* =========================================
-   FAQ links (UNIFIED styles for home + faq)
-   ========================================= */
-
-.page-home .faq-section .faq-accordion a,
-.page-faq .faq-accordion a {
-  color: #0b3e73;
-  /* deeper blue for contrast */
-  font-weight: 700;
-  /* bolder */
-  text-decoration: underline;
-  /* always visible */
-  text-decoration-thickness: 0.12em;
-  text-underline-offset: 0.15em;
-  border-bottom: none !important;
-  /* override dashed underline */
-}
-
-/* Hover / focus intent */
-.page-home .faq-section .faq-accordion a:hover,
-.page-faq .faq-accordion a:hover {
-  color: #073058;
-  text-underline-offset: 0.22em;
-  background: rgba(17, 75, 136, 0.08);
-}
-
-.page-home .faq-section .faq-accordion a:focus,
-.page-faq .faq-accordion a:focus {
-  outline: 0;
-  box-shadow: 0 0 0 4px rgba(17, 75, 136, 0.18);
-  border-radius: 6px;
-}
-
-/* Visited state remains readable */
-.page-home .faq-section .faq-accordion a:visited,
-.page-faq .faq-accordion a:visited {
-  color: #073058;
-}
-
-/* Small external-link cue */
-.page-home .faq-section .faq-accordion a[target="_blank"]::after,
-.page-faq .faq-accordion a[target="_blank"]::after {
-  content: "↗";
-  margin-left: 0.25rem;
-  font-weight: 700;
-  opacity: 0.9;
-}
-
-/* Divider hairline in FAQ groups (FAQ page) */
-.page-faq .faq-section hr {
-  display: block;
-  border: 0;
-  height: 1px;
-  margin: 0.9rem 0 0;
-  background: linear-gradient(to right,
-      transparent,
-      rgba(17, 75, 136, 0.12) 20%,
-      rgba(17, 75, 136, 0.12) 80%,
-      transparent);
-}
-
-/* Optional white frame wrapper around FAQ groups */
-.page-faq .faq-frame {
-  background: #ffffff;
-  border: 2px solid var(--text-on-primary);
-  border-radius: 24px;
-  padding: 24px;
-}
-
-/* Motion + mobile tweaks for FAQ page */
-@media (prefers-reduced-motion: reduce) {
-
-  .page-faq .faq-accordion details,
-  .page-faq .faq-accordion summary::after {
-    transition: none;
+    transform: translateY(-50%);
   }
 }
 
@@ -1360,5 +1221,32 @@ footer {
 
   .page-faq .faq-accordion h5 {
     font-size: 1.07rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .auth-form {
+    gap: 1rem;
+  }
+
+  .auth-form .btn {
+    box-shadow: 0 8px 16px rgba(220, 223, 225, 0.18);
+  }
+
+  .form-utilities {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .support-actions {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .page-faq .faq-accordion details,
+  .page-faq .faq-accordion summary::after {
+    transition: none;
   }
 }
